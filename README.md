@@ -1,26 +1,16 @@
-# Site Web EVENTECKS SARL
+# EVENTECKS SARL - Site Web
 
-Site officiel de EVENTECKS SARL - Un monde nouveau des solutions nouvelles
+Site officiel d'EVENTECKS SARL - Un monde nouveau des solutions nouvelles
 
-## Services proposés
-
+## Services
 - Ingénierie & Sécurité Informatique
-- Événementiel & Communication
+- Événementiel & Communication  
 - Services Financiers & Immobiliers
 - Produits Agricoles & Fermiers
 - Bâtiment & Travaux Publics
 - Import-Export & Commerce Général
 
-## Installation
-
-Ce site est hébergé sur GitHub Pages et ne nécessite pas d'installation.
-
-## Déploiement
-
-Le site se déploie automatiquement sur chaque commit sur la branche main.
-
 ## Contact
-
-- Email: eventecks@etik.com
-- Téléphone: +225 0505038403
-- Adresse: Abidjan-Marcory, Immeuble Plein Ciel, Boulevard Félix Houphouet Boigny
+- 📞 +225 0505038403
+- 📧 eventecks@etik.com
+- 📍 Abidjan-Marcory, Immeuble Plein Ciel
