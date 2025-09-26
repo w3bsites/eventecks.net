@@ -4,27 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTECKS SARL - Un monde nouveau des solutions nouvelles</title>
+    <meta name="description" content="EVENTECKS SARL - Votre partenaire multisectoriel en Côte d'Ivoire. Ingénierie IT, Événementiel, Services Financiers, Produits Agricoles, BTP, Import-Export.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .service-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        :root {
+            --primary-blue: #3B82F6;
+            --primary-orange: #F97316;
+            --secondary-green: #10B981;
+            --dark-blue: #1D4ED8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--primary-blue);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .language-switch {
+            position: relative;
+            display: inline-block;
+            width: 80px;
+            height: 35px;
+        }
+        
+        .language-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--primary-blue);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "FR";
+            height: 27px;
+            width: 27px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-orange);
+        }
+        
+        input:checked + .slider:before {
+            content: "EN";
+            transform: translateX(45px);
+            color: var(--primary-orange);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white shadow-lg sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
                 <div class="flex items-center">
-                    <h2 class="text-2xl font-bold text-blue-600">EVENTECKS SARL</h2>
+                    <div class="flex-shrink-0">
+                        <h2 class="text-2xl font-bold text-blue-600">EVENTECKS SARL</h2>
+                        <p class="text-xs text-gray-500">Event-Technologies-Services</p>
+                    </div>
                 </div>
+
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#accueil" class="text-gray-900 font-medium">Accueil</a>
-                    <a href="#services" class="text-gray-600 hover:text-gray-900">Services</a>
-                    <a href="#apropos" class="text-gray-600 hover:text-gray-900">À Propos</a>
-                    <a href="#contact" class="text-gray-600 hover:text-gray-900">Contact</a>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
+                    <a href="#accueil" class="nav-link active-nav text-gray-900 font-medium">Accueil</a>
+                    <a href="#services" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Services</a>
+                    <a href="#realisations" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Réalisations</a>
+                    <a href="#apropos" class="nav-link text-gray-600 hover:text-gray-900 font-medium">À Propos</a>
+                    <a href="#produits" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Produits</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+                    
+                    <!-- Language Toggle -->
+                    <label class="language-switch ml-4">
+                        <input type="checkbox" id="languageToggle">
+                        <span class="slider"></span>
+                    </label>
+                    
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
                         Demander un devis
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" id="mobileMenuButton" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#accueil" class="block text-gray-900 font-medium">Accueil</a>
+                <a href="#services" class="block text-gray-600 hover:text-gray-900 font-medium">Services</a>
+                <a href="#realisations" class="block text-gray-600 hover:text-gray-900 font-medium">Réalisations</a>
+                <a href="#apropos" class="block text-gray-600 hover:text-gray-900 font-medium">À Propos</a>
+                <a href="#produits" class="block text-gray-600 hover:text-gray-900 font-medium">Produits</a>
+                <a href="#contact" class="block text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+                
+                <div class="flex items-center justify-between pt-4">
+                    <label class="language-switch">
+                        <input type="checkbox" id="mobileLanguageToggle">
+                        <span class="slider"></span>
+                    </label>
+                    
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
+                        Devis
                     </button>
                 </div>
             </div>
@@ -32,119 +219,447 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="accueil" class="bg-gradient-to-r from-blue-600 to-orange-500 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-5xl font-bold mb-6">EVENTECKS SARL</h1>
-            <p class="text-2xl mb-8">Un monde nouveau des solutions nouvelles</p>
-            <p class="text-xl mb-8">Votre partenaire multisectoriel en Côte d'Ivoire</p>
-            <button class="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold">
-                Découvrir nos services
-            </button>
+    <section id="accueil" class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h1 class="text-5xl font-bold mb-6 leading-tight">
+                        EVENTECKS SARL<br>
+                        <span class="text-orange-300">Un monde nouveau des solutions nouvelles</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Votre partenaire multisectoriel pour l'innovation et l'excellence en Côte d'Ivoire
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
+                            Découvrir nos services
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
+                            Nous contacter
+                        </button>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Solutions innovantes EVENTECKS" 
+                         class="rounded-xl shadow-2xl w-full">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12">Nos Domaines d'Expertise</h2>
-            
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Domaines d'Expertise</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Découvrez notre large gamme de services professionnels adaptés à vos besoins
+                </p>
+            </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="bg-blue-600 text-white p-4 rounded-lg mb-4">
-                        <i class="fas fa-shield-alt text-3xl"></i>
-                        <h3 class="text-xl font-semibold mt-2">Ingénierie & Sécurité Informatique</h3>
+                <!-- Service 1: IT Security -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Ingénierie & Sécurité Informatique</h3>
                     </div>
-                    <p class="text-gray-600 mb-4"><strong>Slogan :</strong> "Votre bouclier digital, notre expertise technologique"</p>
+                    <p class="text-gray-600 mb-4">
+                        <strong class="text-blue-600">Slogan :</strong> "Sécurité digitale, performance assurée"
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Sécurité informatique" 
+                         class="w-full h-48 object-cover rounded-lg mb-4">
+                    <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="bg-orange-500 text-white p-4 rounded-lg mb-4">
-                        <i class="fas fa-calendar-alt text-3xl"></i>
-                        <h3 class="text-xl font-semibold mt-2">Événementiel & Communication</h3>
+                <!-- Service 2: Event Management -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-500 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-orange-100 p-3 rounded-full">
+                            <i class="fas fa-calendar-alt text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Événementiel & Communication</h3>
                     </div>
-                    <p class="text-gray-600 mb-4"><strong>Slogan :</strong> "De l'idée à l'émotion, nous créons l'extraordinaire"</p>
+                    <p class="text-gray-600 mb-4">
+                        <strong class="text-orange-600">Slogan :</strong> "Des événements mémorables, une communication impactante"
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Événementiel" 
+                         class="w-full h-48 object-cover rounded-lg mb-4">
+                    <a href="#contact" class="text-orange-600 hover:text-orange-800 font-medium inline-flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Service 3 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
-                        <i class="fas fa-chart-line text-3xl"></i>
-                        <h3 class="text-xl font-semibold mt-2">Services Financiers & Immobiliers</h3>
+                <!-- Service 3: Financial Services -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full">
+                            <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Services Financiers & Immobiliers</h3>
                     </div>
-                    <p class="text-gray-600 mb-4"><strong>Slogan :</strong> "Votre croissance financière, notre stratégie gagnante"</p>
+                    <p class="text-gray-600 mb-4">
+                        <strong class="text-green-600">Slogan :</strong> "Votre réussite financière, notre priorité"
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Services financiers" 
+                         class="w-full h-48 object-cover rounded-lg mb-4">
+                    <a href="#contact" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Service 4 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="bg-green-400 text-white p-4 rounded-lg mb-4">
-                        <i class="fas fa-tractor text-3xl"></i>
-                        <h3 class="text-xl font-semibold mt-2">Produits Agricoles & Fermiers</h3>
+                <!-- Service 4: Agricultural Products -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-400 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full">
+                            <i class="fas fa-tractor text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Produits Agricoles & Fermiers</h3>
                     </div>
-                    <p class="text-gray-600 mb-4"><strong>Slogan :</strong> "Le meilleur de la terre, l'excellence à votre table"</p>
+                    <p class="text-gray-600 mb-4">
+                        <strong class="text-green-500">Slogan :</strong> "Qualité naturelle, excellence agricole"
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Produits agricoles" 
+                         class="w-full h-48 object-cover rounded-lg mb-4">
+                    <a href="#contact" class="text-green-500 hover:text-green-700 font-medium inline-flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Service 5 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="bg-gray-600 text-white p-4 rounded-lg mb-4">
-                        <i class="fas fa-hard-hat text-3xl"></i>
-                        <h3 class="text-xl font-semibold mt-2">Bâtiment & Travaux Publics</h3>
+                <!-- Service 5: Construction -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-500 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gray-100 p-3 rounded-full">
+                            <i class="fas fa-hard-hat text-gray-600 text-2xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Bâtiment & Travaux Publics</h3>
                     </div>
-                    <p class="text-gray-600 mb-4"><strong>Slogan :</strong> "Bâtisseurs de confiance, constructeurs d'avenir"</p>
+                    <p class="text-gray-600 mb-4">
+                        <strong class="text-gray-600">Slogan :</strong> "Construire aujourd'hui, préparer demain"
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Bâtiment et travaux publics" 
+                         class="w-full h-48 object-cover rounded-lg mb-4">
+                    <a href="#contact" class="text-gray-600 hover:text-gray-800 font-medium inline-flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Service 6 -->
-                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
-                    <div class="bg-blue-500 text-white p-4 rounded-lg mb-4">
-                        <i class="fas fa-globe-americas text-3xl"></i>
-                        <h3 class="text-xl font-semibold mt-2">Import-Export & Commerce Général</h3>
+                <!-- Service 6: Import-Export -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-400 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full">
+                            <i class="fas fa-globe-americas text-blue-500 text-2xl"></i>
+                        </div>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Import-Export & Commerce Général</h3>
                     </div>
-                    <p class="text-gray-600 mb-4"><strong>Slogan :</strong> "Votre pont commercial entre les continents"</p>
+                    <p class="text-gray-600 mb-4">
+                        <strong class="text-blue-500">Slogan :</strong> "Relier les marchés, créer des opportunités"
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Import-Export" 
+                         class="w-full h-48 object-cover rounded-lg mb-4">
+                    <a href="#contact" class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center">
+                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Realisations Section -->
+    <section id="realisations" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Réalisations</h2>
+                <p class="text-xl text-gray-600">Découvrez nos projets et succès clients</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Realisation 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Projet IT" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Sécurisation Infrastructure IT</h3>
+                        <p class="text-gray-600 mb-4">Client: Banque Internationale</p>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">IT & Sécurité</span>
+                    </div>
+                </div>
+
+                <!-- Realisation 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Projet Agricole" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Modernisation Exploitation Agricole</h3>
+                        <p class="text-gray-600 mb-4">Client: AgroBusiness CI</p>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Agriculture</span>
+                    </div>
+                </div>
+
+                <!-- Realisation 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Projet Construction" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Complexe Résidentiel</h3>
+                        <p class="text-gray-600 mb-4">Client: Promoteur Immobilier</p>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">BTP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Équipe EVENTECKS" 
+                         class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">À Propos d'EVENTECKS SARL</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-eye text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Notre Vision</h3>
+                                <p class="text-gray-600">Devenir le leader des solutions intégrées en combinant technologie, innovation et expertise sectorielle.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bullseye text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Notre Mission</h3>
+                                <p class="text-gray-600">Fournir des services et produits de qualité supérieure qui répondent aux besoins diversifiés de nos clients.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-handshake text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Nos Valeurs</h3>
+                                <p class="text-gray-600">Innovation, intégrité, excellence et engagement envers la satisfaction client.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits Section -->
+    <section id="produits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Produits Phares</h2>
+                <p class="text-xl text-gray-600">Découvrez notre sélection de produits de qualité</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- IT Security Product -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="bg-blue-600 p-6">
+                        <h3 class="text-white text-xl font-semibold">Solutions de Cybersécurité</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Protection contre les cyberattaques</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Audits de sécurité</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Formation en sécurité</p>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+                                En savoir plus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Agricultural Product -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="bg-green-500 p-6">
+                        <h3 class="text-white text-xl font-semibold">Produits Agricoles Bio</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-green-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Fruits et légumes bio</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-green-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Produits laitiers fermiers</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-green-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Équipements agricoles</p>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition duration-300">
+                                En savoir plus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Construction Product -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md fade-in">
+                    <div class="bg-gray-600 p-6">
+                        <h3 class="text-white text-xl font-semibold">Matériaux de Construction</h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-gray-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Ciments et agrégats</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-gray-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Matériaux de finition</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-gray-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">Équipements TP</p>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition duration-300">
+                                En savoir plus
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-100">
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center mb-12">Contactez-nous</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6">Coordonnées</h3>
-                    <div class="space-y-4">
-                        <p><i class="fas fa-map-marker-alt text-blue-600 mr-2"></i> Abidjan-Marcory, Immeuble Plein Ciel</p>
-                        <p><i class="fas fa-phone-alt text-blue-600 mr-2"></i> +225 0505038403</p>
-                        <p><i class="fas fa-envelope text-blue-600 mr-2"></i> eventecks@etik.com</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Contactez-nous</h2>
+                <p class="text-xl text-gray-600">Prêt à transformer vos projets en réalité ? Parlons-en !</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold mb-6">Nos Coordonnées</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Adresse</h4>
+                                <p class="text-gray-600">Abidjan-Marcory, Immeuble Plein Ciel<br>Boulevard Félix Houphouet Boigny<br>01 BP 5601 Abidjan 01</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Téléphone</h4>
+                                <p class="text-gray-600">+225 0505038403</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">eventecks@etik.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Horaires</h4>
+                                <p class="text-gray-600">Lundi - Vendredi: 8h00 - 18h00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- FORMULAIRE FONCTIONNEL AVEC FORMSPREE -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-6">Envoyez-nous un message</h3>
-                    
-                    <!-- Remplacez YOUR_FORMSPREE_ID par votre ID Formspree -->
-                    <form action="https://formspree.io/f/mblzdrap" method="POST" id="contactForm">
+
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form action="https://formspree.io/f/mblzdrap" method="POST" id="contactForm" class="contact-form">
                         <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Votre nom *</label>
-                            <input type="text" name="name" class="w-full p-3 border rounded-lg" required>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet *</label>
+                            <input type="text" id="name" name="name" required class="form-input">
                         </div>
-                        
+
                         <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Votre email *</label>
-                            <input type="email" name="email" class="w-full p-3 border rounded-lg" required>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <input type="email" id="email" name="email" required class="form-input">
                         </div>
-                        
+
                         <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Téléphone</label>
-                            <input type="tel" name="phone" class="w-full p-3 border rounded-lg">
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
                         </div>
-                        
+
                         <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Service concerné</label>
-                            <select name="service" class="w-full p-3 border rounded-lg">
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service concerné</label>
+                            <select id="service" name="service" class="form-input">
                                 <option value="">Sélectionnez un service</option>
                                 <option value="it">Ingénierie & Sécurité IT</option>
                                 <option value="event">Événementiel & Communication</option>
@@ -154,14 +669,14 @@
                                 <option value="import">Import-Export</option>
                             </select>
                         </div>
-                        
-                        <div class="mb-4">
-                            <label class="block text-gray-700 mb-2">Message *</label>
-                            <textarea name="message" class="w-full p-3 border rounded-lg" rows="5" required></textarea>
+
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <textarea id="message" name="message" rows="5" required class="form-input"></textarea>
                         </div>
-                        
-                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg w-full">
-                            <i class="fas fa-paper-plane mr-2"></i>Envoyer le message
+
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300">
+                            Envoyer le message
                         </button>
                     </form>
                     
@@ -175,14 +690,117 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2025 EVENTECKS SARL. Tous droits réservés.</p>
-            <p class="mt-2">Capital social: 1.000.000 FCFA</p>
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">EVENTECKS SARL</h3>
+                    <p class="text-gray-400 mb-4">
+                        Un monde nouveau des solutions nouvelles. Votre partenaire de confiance pour l'innovation et l'excellence.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Liens Rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition duration-300">À Propos</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Nos Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sécurité Informatique</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Événementiel</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Services Financiers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Produits Agricoles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Footer -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact</h3>
+                    <address class="text-gray-400 not-italic">
+                        <p class="mb-2">Abidjan-Marcory</p>
+                        <p class="mb-2">Immeuble Plein Ciel</p>
+                        <p class="mb-2">01 BP 5601 Abidjan 01</p>
+                        <p class="mb-2">Tél: +225 0505038403</p>
+                        <p>Email: eventecks@etik.com</p>
+                    </address>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 EVENTECKS SARL. Tous droits réservés. | Capital social: 1.000.000 FCFA
+                </p>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fonction pour scroller vers une section
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => {
+            observer.observe(el);
+        });
+
         // Gestion du formulaire avec Formspree
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -217,11 +835,21 @@
                     throw new Error('Erreur lors de l\'envoi');
                 }
             } catch (error) {
-                alert('Erreur lors de l\'envoi du message. Veuillez nous contacter directement par téléphone.');
+                alert('Erreur lors de l\'envoi du message. Veuillez nous contacter directement par téléphone au +225 0505038403.');
             } finally {
                 // Réinitialiser le bouton
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
             }
         });
     </script>
