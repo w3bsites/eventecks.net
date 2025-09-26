@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTECKS SARL - Un monde nouveau des solutions nouvelles</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -24,6 +23,7 @@
         
         body {
             overflow-x: hidden;
+            background-color: #f9fafb;
         }
         
         .hero-gradient {
@@ -64,59 +64,6 @@
             width: 100%;
         }
         
-        .language-switch {
-            position: relative;
-            display: inline-block;
-            width: 80px;
-            height: 35px;
-        }
-        
-        .language-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--primary-blue);
-            transition: .4s;
-            border-radius: 34px;
-        }
-        
-        .slider:before {
-            position: absolute;
-            content: "FR";
-            height: 27px;
-            width: 27px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--primary-blue);
-        }
-        
-        input:checked + .slider {
-            background-color: var(--primary-orange);
-        }
-        
-        input:checked + .slider:before {
-            content: "EN";
-            transform: translateX(45px);
-            color: var(--primary-orange);
-        }
-        
         .fade-in {
             animation: fadeIn 0.8s ease-in;
         }
@@ -126,11 +73,27 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        /* Styles pour le formulaire de contact */
+        .contact-form {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
     </style>
 </head>
@@ -142,7 +105,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <img class="h-12 w-auto" src="https://via.placeholder.com/150x50?text=EVENTECKS" alt="EVENTECKS SARL">
+                        <h2 class="text-2xl font-bold text-blue-600">EVENTECKS SARL</h2>
                     </div>
                 </div>
 
@@ -153,12 +116,6 @@
                     <a href="#realisations" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Réalisations</a>
                     <a href="#apropos" class="nav-link text-gray-600 hover:text-gray-900 font-medium">À Propos</a>
                     <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Contact</a>
-                    
-                    <!-- Language Toggle -->
-                    <label class="language-switch ml-4">
-                        <input type="checkbox" id="languageToggle">
-                        <span class="slider"></span>
-                    </label>
                     
                     <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
                         Demander un devis
@@ -183,16 +140,9 @@
                 <a href="#apropos" class="block text-gray-600 hover:text-gray-900 font-medium">À Propos</a>
                 <a href="#contact" class="block text-gray-600 hover:text-gray-900 font-medium">Contact</a>
                 
-                <div class="flex items-center justify-between pt-4">
-                    <label class="language-switch">
-                        <input type="checkbox" id="mobileLanguageToggle">
-                        <span class="slider"></span>
-                    </label>
-                    
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
-                        Devis
-                    </button>
-                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium w-full">
+                    Demander un devis
+                </button>
             </div>
         </div>
     </nav>
@@ -221,7 +171,7 @@
                 <div class="fade-in">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
                          alt="Solutions innovantes EVENTECKS" 
-                         class="rounded-xl shadow-2xl">
+                         class="rounded-xl shadow-2xl w-full">
                 </div>
             </div>
         </div>
@@ -247,7 +197,7 @@
                         <h3 class="ml-4 text-xl font-semibold text-gray-900">Ingénierie & Sécurité Informatique</h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        Votre bouclier digital, notre expertise technologique
+                        <strong>Slogan :</strong> Votre bouclier digital, notre expertise technologique
                     </p>
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Sécurité informatique" 
@@ -266,7 +216,7 @@
                         <h3 class="ml-4 text-xl font-semibold text-gray-900">Événementiel & Communication</h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        De l'idée à l'émotion, nous créons l'extraordinaire
+                        <strong>Slogan :</strong> De l'idée à l'émotion, nous créons l'extraordinaire
                     </p>
                     <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Événementiel" 
@@ -285,7 +235,7 @@
                         <h3 class="ml-4 text-xl font-semibold text-gray-900">Services Financiers & Immobiliers</h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        Votre croissance financière, notre stratégie gagnante
+                        <strong>Slogan :</strong> Votre croissance financière, notre stratégie gagnante
                     </p>
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Services financiers" 
@@ -304,7 +254,7 @@
                         <h3 class="ml-4 text-xl font-semibold text-gray-900">Produits Agricoles & Fermiers</h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        Le meilleur de la terre, l'excellence à votre table
+                        <strong>Slogan :</strong> Le meilleur de la terre, l'excellence à votre table
                     </p>
                     <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Produits agricoles" 
@@ -323,7 +273,7 @@
                         <h3 class="ml-4 text-xl font-semibold text-gray-900">Bâtiment & Travaux Publics</h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        Bâtisseurs de confiance, constructeurs d'avenir
+                        <strong>Slogan :</strong> Bâtisseurs de confiance, constructeurs d'avenir
                     </p>
                     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Bâtiment et travaux publics" 
@@ -342,7 +292,7 @@
                         <h3 class="ml-4 text-xl font-semibold text-gray-900">Import-Export & Commerce Général</h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        Votre pont commercial entre les continents
+                        <strong>Slogan :</strong> Votre pont commercial entre les continents
                     </p>
                     <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Import-Export" 
@@ -355,55 +305,15 @@
         </div>
     </section>
 
-    <!-- Realisations Section -->
-    <section id="realisations" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Réalisations</h2>
-                <p class="text-xl text-gray-600">Découvrez nos projets et succès clients</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Realisation 1 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                         alt="Projet IT" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Sécurisation Infrastructure IT</h3>
-                        <p class="text-gray-600 mb-4">Client: Banque Internationale</p>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">IT & Sécurité</span>
-                    </div>
-                </div>
-
-                <!-- Realisation 2 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                         alt="Projet Agricole" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modernisation Exploitation Agricole</h3>
-                        <p class="text-gray-600 mb-4">Client: AgroBusiness CI</p>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Agriculture</span>
-                    </div>
-                </div>
-
-                <!-- Realisation 3 -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                         alt="Projet Construction" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Complexe Résidentiel</h3>
-                        <p class="text-gray-600 mb-4">Client: Promoteur Immobilier</p>
-                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">BTP</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
-    <section id="apropos" class="py-20 bg-white">
+    <section id="apropos" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                         alt="Équipe EVENTECKS" 
+                         class="rounded-xl shadow-lg w-full">
+                </div>
                 <div class="fade-in">
                     <h2 class="text-4xl font-bold text-gray-900 mb-6">À Propos d'EVENTECKS SARL</h2>
                     
@@ -439,18 +349,12 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="fade-in">
-                    <img src="https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
-                         alt="Équipe EVENTECKS" 
-                         class="rounded-xl shadow-lg">
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Contactez-nous</h2>
@@ -507,29 +411,25 @@
 
                 <!-- Contact Form -->
                 <div class="fade-in">
-                    <form id="contactForm" class="bg-white p-8 rounded-lg shadow-md">
+                    <form id="contactForm" class="contact-form">
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet *</label>
-                            <input type="text" id="name" name="name" required 
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <input type="text" id="name" name="name" required class="form-input">
                         </div>
 
                         <div class="mb-4">
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                            <input type="email" id="email" name="email" required 
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <input type="email" id="email" name="email" required class="form-input">
                         </div>
 
                         <div class="mb-4">
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
-                            <input type="tel" id="phone" name="phone" 
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <input type="tel" id="phone" name="phone" class="form-input">
                         </div>
 
                         <div class="mb-4">
                             <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service concerné</label>
-                            <select id="service" name="service" 
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <select id="service" name="service" class="form-input">
                                 <option value="">Sélectionnez un service</option>
                                 <option value="it">Ingénierie & Sécurité IT</option>
                                 <option value="event">Événementiel & Communication</option>
@@ -542,8 +442,7 @@
 
                         <div class="mb-6">
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
-                            <textarea id="message" name="message" rows="5" required 
-                                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            <textarea id="message" name="message" rows="5" required class="form-input"></textarea>
                         </div>
 
                         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300">
@@ -584,7 +483,7 @@
                     <ul class="space-y-2">
                         <li><a href="#accueil" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
-                        <li><a href="#realisations" class="text-gray-400 hover:text-white transition duration-300">Réalisations</a></li>
+                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition duration-300">À Propos</a></li>
                         <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
                     </ul>
                 </div>
@@ -615,7 +514,7 @@
 
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-400">
-                    &copy; 2024 EVENTECKS SARL. Tous droits réservés. | Capital social: 1.000.000 FCFA
+                    &copy; 2025 EVENTECKS SARL. Tous droits réservés. | Capital social: 1.000.000 FCFA
                 </p>
             </div>
         </div>
@@ -631,18 +530,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Language Toggle
-        const languageToggle = document.getElementById('languageToggle');
-        const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
-        
-        function toggleLanguage() {
-            // Implementation for language switching
-            console.log('Language toggled');
-        }
-        
-        languageToggle?.addEventListener('change', toggleLanguage);
-        mobileLanguageToggle?.addEventListener('change', toggleLanguage);
-
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -657,24 +544,40 @@
             });
         });
 
-        // Form Submission
-        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        // Form Submission avec Formspree
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
+            // Récupération des données du formulaire
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            const data = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
             
-            // Simulate form submission
-            alert('Merci pour votre message ! Nous vous contacterons rapidement.');
-            this.reset();
-            
-            // In a real implementation, you would send this to your server
-            // fetch('/send-email.php', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(data)
-            // })
+            // Utilisation de Formspree pour l'envoi d'email
+            fetch('https://formspree.io/f/mblzdrap', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Merci pour votre message ! Nous vous contacterons rapidement.');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert('Une erreur s\'est produite. Veuillez réessayer.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Une erreur s\'est produite. Veuillez réessayer.');
+            });
         });
 
         // Navbar scroll effect
@@ -687,7 +590,7 @@
             }
         });
 
-        // Intersection Observer for animations
+        // Animation au défilement
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -701,7 +604,7 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
+        // Observer les éléments pour l'animation
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
