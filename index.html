@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTECKS sarl - Un monde nouveau des solutions nouvelles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .language-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+        .language-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #3b82f6;
+            transition: .4s;
+            border-radius: 30px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "FR";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        input:checked + .slider {
+            background-color: #f97316;
+        }
+        input:checked + .slider:before {
+            content: "EN";
+            color: #f97316;
+            transform: translateX(30px);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #f97316;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .active:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Language Toggle -->
+    <div class="fixed top-4 right-4 z-50 flex items-center">
+        <label class="language-switch">
+            <input type="checkbox" id="languageToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-10 w-auto" src="https://via.placeholder.com/150x50?text=EVENTECKS" alt="EVENTECKS logo">
+                    </div>
+                    <div class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="#home" class="nav-link active border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <span class="fr">Accueil</span>
+                            <span class="en hidden">Home</span>
+                        </a>
+                        <a href="#services" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <span class="fr">Services</span>
+                            <span class="en hidden">Services</span>
+                        </a>
+                        <a href="#about" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <span class="fr">À propos</span>
+                            <span class="en hidden">About</span>
+                        </a>
+                        <a href="#products" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <span class="fr">Produits</span>
+                            <span class="en hidden">Products</span>
+                        </a>
+                        <a href="#contact" class="nav-link border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <span class="fr">Contact</span>
+                            <span class="en hidden">Contact</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+                        <span class="fr">Demander un devis</span>
+                        <span class="en hidden">Get a quote</span>
+                    </button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <span class="fr">Accueil</span>
+                    <span class="en hidden">Home</span>
+                </a>
+                <a href="#services" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <span class="fr">Services</span>
+                    <span class="en hidden">Services</span>
+                </a>
+                <a href="#about" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <span class="fr">À propos</span>
+                    <span class="en hidden">About</span>
+                </a>
+                <a href="#products" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <span class="fr">Produits</span>
+                    <span class="en hidden">Products</span>
+                </a>
+                <a href="#contact" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                    <span class="fr">Contact</span>
+                    <span class="en hidden">Contact</span>
+                </a>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="mt-3 space-y-1">
+                        <button class="block w-full text-left bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-base font-medium transition duration-300">
+                            <span class="fr">Demander un devis</span>
+                            <span class="en hidden">Get a quote</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-blue-600 to-orange-500 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                        <span class="fr">Un monde nouveau des solutions nouvelles</span>
+                        <span class="en hidden">A new world of new solutions</span>
+                    </h1>
+                    <p class="text-xl mb-8">
+                        <span class="fr">EVENTECKS sarl offre une gamme complète de services et produits innovants pour répondre à tous vos besoins professionnels.</span>
+                        <span class="en hidden">EVENTECKS sarl offers a complete range of innovative services and products to meet all your professional needs.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
+                            <span class="fr">Nos services</span>
+                            <span class="en hidden">Our services</span>
+                        </button>
+                        <button class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-md text-lg font-semibold transition duration-300">
+                            <span class="fr">Contactez-nous</span>
+                            <span class="en hidden">Contact us</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://via.placeholder.com/500x350?text=EVENTECKS" alt="EVENTECKS solutions" class="rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    <span class="fr">Nos Domaines d'Expertise</span>
+                    <span class="en hidden">Our Areas of Expertise</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    <span class="fr">Découvrez notre large gamme de services professionnels</span>
+                    <span class="en hidden">Discover our wide range of professional services</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- IT Security -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="bg-blue-600 p-4">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full">
+                                <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-white text-xl font-semibold">
+                                <span class="fr">Ingénierie & Sécurité Informatique</span>
+                                <span class="en hidden">IT Engineering & Security</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">
+                            <span class="fr">Solutions complètes de cybersécurité, infrastructure réseau et développement logiciel sur mesure.</span>
+                            <span class="en hidden">Comprehensive cybersecurity solutions, network infrastructure and custom software development.</span>
+                        </p>
+                        <div class="mt-4">
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">
+                                <span class="fr">En savoir plus →</span>
+                                <span class="en hidden">Learn more →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event Management -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="bg-orange-500 p-4">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full">
+                                <i class="fas fa-calendar-alt text-orange-500 text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-white text-xl font-semibold">
+                                <span class="fr">Événementiel & Communication</span>
+                                <span class="en hidden">Events & Communication</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">
+                            <span class="fr">Organisation d'événements professionnels, stratégies de communication et solutions médias.</span>
+                            <span class="en hidden">Professional event organization, communication strategies and media solutions.</span>
+                        </p>
+                        <div class="mt-4">
+                            <button class="text-orange-500 hover:text-orange-700 font-medium">
+                                <span class="fr">En savoir plus →</span>
+                                <span class="en hidden">Learn more →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Financial Services -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="bg-blue-600 p-4">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full">
+                                <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-white text-xl font-semibold">
+                                <span class="fr">Services Financiers & Immobiliers</span>
+                                <span class="en hidden">Financial & Real Estate Services</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">
+                            <span class="fr">Conseil en investissement, gestion de patrimoine et solutions immobilières sur mesure.</span>
+                            <span class="en hidden">Investment advice, wealth management and custom real estate solutions.</span>
+                        </p>
+                        <div class="mt-4">
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">
+                                <span class="fr">En savoir plus →</span>
+                                <span class="en hidden">Learn more →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Agricultural Products -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="bg-orange-500 p-4">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full">
+                                <i class="fas fa-tractor text-orange-500 text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-white text-xl font-semibold">
+                                <span class="fr">Produits Agricoles & Fermiers</span>
+                                <span class="en hidden">Agricultural & Farm Products</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">
+                            <span class="fr">Distribution de produits agricoles de qualité, équipements et solutions pour l'agro-industrie.</span>
+                            <span class="en hidden">Distribution of quality agricultural products, equipment and solutions for agribusiness.</span>
+                        </p>
+                        <div class="mt-4">
+                            <button class="text-orange-500 hover:text-orange-700 font-medium">
+                                <span class="fr">En savoir plus →</span>
+                                <span class="en hidden">Learn more →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Construction -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="bg-blue-600 p-4">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full">
+                                <i class="fas fa-hard-hat text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-white text-xl font-semibold">
+                                <span class="fr">Bâtiment & Travaux Publics</span>
+                                <span class="en hidden">Construction & Public Works</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">
+                            <span class="fr">Réalisation de projets de construction, infrastructures urbaines et solutions techniques.</span>
+                            <span class="en hidden">Construction project implementation, urban infrastructure and technical solutions.</span>
+                        </p>
+                        <div class="mt-4">
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">
+                                <span class="fr">En savoir plus →</span>
+                                <span class="en hidden">Learn more →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Import-Export -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="bg-orange-500 p-4">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full">
+                                <i class="fas fa-globe-europe text-orange-500 text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-white text-xl font-semibold">
+                                <span class="fr">Import-Export & Commerce Général</span>
+                                <span class="en hidden">Import-Export & General Trade</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-600">
+                            <span class="fr">Solutions logistiques internationales, commerce de divers produits et services.</span>
+                            <span class="en hidden">International logistics solutions, trade of various products and services.</span>
+                        </p>
+                        <div class="mt-4">
+                            <button class="text-orange-500 hover:text-orange-700 font-medium">
+                                <span class="fr">En savoir plus →</span>
+                                <span class="en hidden">Learn more →</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        <img class="w-full rounded-lg shadow-xl" src="https://via.placeholder.com/500x400?text=About+EVENTECKS" alt="About EVENTECKS">
+                        <div class="absolute -bottom-6 -right-6 bg-orange-500 p-6 rounded-lg shadow-lg">
+                            <h3 class="text-white text-xl font-bold">
+                                <span class="fr">10+</span>
+                                <span class="en hidden">10+</span>
+                            </h3>
+                            <p class="text-white">
+                                <span class="fr">Ans d'expérience</span>
+                                <span class="en hidden">Years of experience</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 lg:mt-0 lg:col-span-7">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        <span class="fr">À propos de EVENTECKS sarl</span>
+                        <span class="en hidden">About EVENTECKS sarl</span>
+                    </h2>
+                    <p class="mt-3 text-lg text-gray-500">
+                        <span class="fr">Notre société offre des solutions innovantes et complètes dans divers secteurs d'activité.</span>
+                        <span class="en hidden">Our company offers innovative and comprehensive solutions in various business sectors.</span>
+                    </p>
+                    <div class="mt-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-2">
+                                <i class="fas fa-lightbulb text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Notre Vision</span>
+                                    <span class="en hidden">Our Vision</span>
+                                </h4>
+                                <p class="mt-1 text-gray-600">
+                                    <span class="fr">Devenir le leader des solutions intégrées en combinant technologie, innovation et expertise sectorielle.</span>
+                                    <span class="en hidden">To become the leader in integrated solutions by combining technology, innovation and sector expertise.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-start">
+                            <div class="flex-shrink-0 bg-orange-500 rounded-md p-2">
+                                <i class="fas fa-bullseye text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Notre Mission</span>
+                                    <span class="en hidden">Our Mission</span>
+                                </h4>
+                                <p class="mt-1 text-gray-600">
+                                    <span class="fr">Fournir des services et produits de qualité supérieure qui répondent aux besoins diversifiés de nos clients.</span>
+                                    <span class="en hidden">Provide high-quality services and products that meet the diverse needs of our clients.</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-start">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-2">
+                                <i class="fas fa-handshake text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Nos Valeurs</span>
+                                    <span class="en hidden">Our Values</span>
+                                </h4>
+                                <p class="mt-1 text-gray-600">
+                                    <span class="fr">Innovation, intégrité, excellence et engagement envers la satisfaction client.</span>
+                                    <span class="en hidden">Innovation, integrity, excellence and commitment to customer satisfaction.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    <span class="fr">Nos Produits Phares</span>
+                    <span class="en hidden">Our Featured Products</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    <span class="fr">Découvrez notre sélection de produits de qualité</span>
+                    <span class="en hidden">Discover our selection of quality products</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- IT Security Product -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="bg-blue-600 p-6">
+                        <h3 class="text-white text-xl font-semibold">
+                            <span class="fr">Solutions de Cybersécurité</span>
+                            <span class="en hidden">Cybersecurity Solutions</span>
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Protection contre les cyberattaques</span>
+                                    <span class="en hidden">Protection against cyber attacks</span>
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Audits de sécurité</span>
+                                    <span class="en hidden">Security audits</span>
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Formation en sécurité</span>
+                                    <span class="en hidden">Security training</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+                                <span class="fr">En savoir plus</span>
+                                <span class="en hidden">Learn more</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Agricultural Product -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="bg-orange-500 p-6">
+                        <h3 class="text-white text-xl font-semibold">
+                            <span class="fr">Produits Agricoles Bio</span>
+                            <span class="en hidden">Organic Farm Products</span>
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-orange-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Fruits et légumes bio</span>
+                                    <span class="en hidden">Organic fruits and vegetables</span>
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-orange-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Produits laitiers fermiers</span>
+                                    <span class="en hidden">Farm dairy products</span>
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-orange-500">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Équipements agricoles</span>
+                                    <span class="en hidden">Agricultural equipment</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-md transition duration-300">
+                                <span class="fr">En savoir plus</span>
+                                <span class="en hidden">Learn more</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Construction Product -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="bg-blue-600 p-6">
+                        <h3 class="text-white text-xl font-semibold">
+                            <span class="fr">Matériaux de Construction</span>
+                            <span class="en hidden">Construction Materials</span>
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Ciments et agrégats</span>
+                                    <span class="en hidden">Cements and aggregates</span>
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Matériaux de finition</span>
+                                    <span class="en hidden">Finishing materials</span>
+                                </p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 text-blue-600">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="fr">Équipements TP</span>
+                                    <span class="en hidden">Public works equipment</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="mt-6">
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+                                <span class="fr">En savoir plus</span>
+                                <span class="en hidden">Learn more</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    <span class="fr">Ils nous font confiance</span>
+                    <span class="en hidden">They trust us</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    <span class="fr">Découvrez ce que nos clients disent de nous</span>
+                    <span class="en hidden">Discover what our clients say about us</span>
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://via.placeholder.com/150" alt="Client">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Jean Dupont</h4>
+                            <p class="text-gray-500">
+                                <span class="fr">Directeur, Société K-GROUP</span>
+                                <span class="en hidden">Director, K-GROUP Company</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        <span class="fr">"EVENTECKS a révolutionné notre infrastructure IT avec des solutions sur mesure et un support exceptionnel."</span>
+                        <span class="en hidden">"EVENTECKS revolutionized our IT infrastructure with custom solutions and exceptional support."</span>
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://via.placeholder.com/150" alt="Client">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Marie Lambert</h4>
+                            <p class="text-gray-500">
+                                <span class="fr">PDG, AgroSolutions</span>
+                                <span class="en hidden">CEO, AgroSolutions</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        <span class="fr">"Leurs produits agricoles sont d'une qualité exceptionnelle et leur service client est impeccable."</span>
+                        <span class="en hidden">"Their agricultural products are of exceptional quality and their customer service is impeccable."</span>
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://via.placeholder.com/150" alt="Client">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Thomas Martin</h4>
+                            <p class="text-gray-500">
+                                <span class="fr">Directeur des Opérations, ConstructPlus</span>
+                                <span class="en hidden">Operations Director, ConstructPlus</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        <span class="fr">"Leur expertise en construction nous a permis de réaliser des projets complexes dans les délais et le budget."</span>
+                        <span class="en hidden">"Their construction expertise enabled us to complete complex projects on time and on budget."</span>
+                    </p>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+                <div class="mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        <span class="fr">Contactez-nous</span>
+                        <span class="en hidden">Contact us</span>
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-500">
+                        <span class="fr">Nous sommes à votre disposition pour répondre à toutes vos questions et besoins.</span>
+                        <span class="en hidden">We are available to answer all your questions and needs.</span>
+                    </p>
+                    
+                    <div class="mt-8">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-600 rounded-md p-3">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Adresse</span>
+                                    <span class="en hidden">Address</span>
+                                </h3>
+                                <p class="mt-1 text-gray-600">
+                                    <span class="fr">Abidjan Marcory bp 5601 abidjan 01 Immeuble plein ciel Boulevard Félix Houphouet Boigny</span>
+                                    <span class="en hidden">Abidjan Marcory bp 5601 abidjan 01 Immeuble Plein-Ciiel Boulevard Félix Houphouet Boigny</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 flex items-start">
+                            <div class="flex-shrink-0 bg-orange-500 rounded-md p-3">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Téléphone</span>
+                                    <span class="en hidden">Phone</span>
+                                </h3>
+                                <p class="mt-1 text-gray-600">+2250707782678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 flex items-start">
+                            <div class="flex-shrink-0 bg-blue-600 rounded-md p-3">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Email</span>
+                                    <span class="en hidden">Email</span>
+                                </h3>
+                                <p class="mt-1 text-gray-600">contact@eventecks.net</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 flex items-start">
+                            <div class="flex-shrink-0 bg-orange-500 rounded-md p-3">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">
+                                    <span class="fr">Heures d'ouverture</span>
+                                    <span class="en hidden">Opening hours</span>
+                                </h3>
+                                <p class="mt-1 text-gray-600">
+                                    <span class="fr">Lundi-Vendredi: 8h00-18h00</span>
+                                    <span class="en hidden">Monday-Friday: 8am-6pm</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+                        <span class="fr">Envoyez-nous un message</span>
+                        <span class="en hidden">Send us a message</span>
+                    </h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="fr">Nom complet</span>
+                                <span class="en hidden">Full name</span>
+                            </label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="fr">Email</span>
+                                <span class="en hidden">Email</span>
+                            </label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="fr">Sujet</span>
+                                <span class="en hidden">Subject</span>
+                            </label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="fr">Message</span>
+                                <span class="en hidden">Message</span>
+                            </label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+                            <span class="fr">Envoyer le message</span>
+                            <span class="en hidden">Send message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-center text-2xl font-semibold text-gray-900 mb-12">
+                <span class="fr">Nos Partenaires</span>
+                <span class="en hidden">Our Partners</span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+1" alt="Partner 1" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+2" alt="Partner 2" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+3" alt="Partner 3" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+4" alt="Partner 4" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+5" alt="Partner 5" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150x80?text=Partner+6" alt="Partner 6" class="h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold">
+                        <span class="fr">Restez informé</span>
+                        <span class="en hidden">Stay informed</span>
+                    </h2>
+                    <p class="mt-2">
+                        <span class="fr">Abonnez-vous à notre newsletter pour recevoir nos dernières actualités et offres.</span>
+                        <span class="en hidden">Subscribe to our newsletter to receive our latest news and offers.</span>
+                    </p>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="flex">
+                        <input type="email" placeholder="Votre email" class="px-4 py-3 w-full rounded-l-md focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-r-md font-medium transition duration-300">
+                            <span class="fr">S'abonner</span>
+                            <span class="en hidden">Subscribe</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="fr">EVENTECKS sarl</span>
+                        <span class="en hidden">EVENTECKS sarl</span>
+                    </h3>
+                    <p class="text-gray-400">
+                        <span class="fr">Un monde nouveau des solutions nouvelles. Nous offrons des services et produits innovants dans divers secteurs.</span>
+                        <span class="en hidden">A new world of new solutions. We offer innovative services and products in various sectors.</span>
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="fr">Services</span>
+                        <span class="en hidden">Services</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">Ingénierie Informatique-Sécurité IT-Télécoms</span>
+                            <span class="en hidden">Computer Engineering-IT Security-Telecoms</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">Événementiel & Communication</span>
+                            <span class="en hidden">Events & Communication</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">Services Financiers</span>
+                            <span class="en hidden">Financial Services</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">Produits Agricoles</span>
+                            <span class="en hidden">Agricultural Products</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="fr">Liens utiles</span>
+                        <span class="en hidden">Useful links</span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">À propos de nous</span>
+                            <span class="en hidden">About us</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">Nos produits</span>
+                            <span class="en hidden">Our products</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">FAQ</span>
+                            <span class="en hidden">FAQ</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">
+                            <span class="fr">Politique de confidentialité</span>
+                            <span class="en hidden">Privacy Policy</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="fr">Contact</span>
+                        <span class="en hidden">Contact</span>
+                    </h3>
+                    <address class="text-gray-400 not-italic">
+                        <p class="mb-2">BP 5601 ABIDJAN 01</p>
+                        <p class="mb-2">Abidjan Marcory bp 5601 abidjan 01 Immeuble Plein-Ciiel Boulevard Félix Houphouet Boigny</p>
+                        <p class="mb-2">Cote d'Ivoire</p>
+                        <p class="mb-2">Tél: +2250707782678</p>
+                        <p>Email: contact@eventecks.net</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    <span class="fr">© 2025 EVENTECKS sarl. Tous droits réservés.</span>
+                    <span class="en hidden">© 2025 EVENTECKS sarl. All rights reserved.</span>
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">
+                        <span class="fr">Conditions d'utilisation</span>
+                        <span class="en hidden">Terms of Use</span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">
+                        <span class="fr">Politique de confidentialité</span>
+                        <span class="en hidden">Privacy Policy</span>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">
+                        <span class="fr">Mentions légales</span>
+                        <span class="en hidden">Legal Notice</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language toggle functionality
+        const languageToggle = document.getElementById('languageToggle');
+        const frenchElements = document.querySelectorAll('.fr');
+        const englishElements = document.querySelectorAll('.en');
+        
+        languageToggle.addEventListener('change', function() {
+            if (this.checked) {
+                // Switch to English
+                frenchElements.forEach(el => el.classList.add('hidden'));
+                englishElements.forEach(el => el.classList.remove('hidden'));
+                document.documentElement.lang = 'en';
+            } else {
+                // Switch to French
+                frenchElements.forEach(el => el.classList.remove('hidden'));
+                englishElements.forEach(el => el.classList.add('hidden'));
+                document.documentElement.lang = 'fr';
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Highlight active navigation link based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
