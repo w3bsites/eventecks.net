@@ -150,6 +150,23 @@
             transform: translateX(45px);
             color: var(--primary-orange);
         }
+
+        /* Styles pour les éléments multilingues */
+        .lang-fr {
+            display: block;
+        }
+        
+        .lang-en {
+            display: none;
+        }
+        
+        body.english .lang-fr {
+            display: none;
+        }
+        
+        body.english .lang-en {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -167,12 +184,30 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#accueil" class="nav-link active-nav text-gray-900 font-medium">Accueil</a>
-                    <a href="#services" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Services</a>
-                    <a href="#realisations" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Réalisations</a>
-                    <a href="#apropos" class="nav-link text-gray-600 hover:text-gray-900 font-medium">À Propos</a>
-                    <a href="#produits" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Produits</a>
-                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+                    <a href="#accueil" class="nav-link active-nav text-gray-900 font-medium">
+                        <span class="lang-fr">Accueil</span>
+                        <span class="lang-en">Home</span>
+                    </a>
+                    <a href="#services" class="nav-link text-gray-600 hover:text-gray-900 font-medium">
+                        <span class="lang-fr">Services</span>
+                        <span class="lang-en">Services</span>
+                    </a>
+                    <a href="#realisations" class="nav-link text-gray-600 hover:text-gray-900 font-medium">
+                        <span class="lang-fr">Réalisations</span>
+                        <span class="lang-en">Achievements</span>
+                    </a>
+                    <a href="#apropos" class="nav-link text-gray-600 hover:text-gray-900 font-medium">
+                        <span class="lang-fr">À Propos</span>
+                        <span class="lang-en">About</span>
+                    </a>
+                    <a href="#produits" class="nav-link text-gray-600 hover:text-gray-900 font-medium">
+                        <span class="lang-fr">Produits</span>
+                        <span class="lang-en">Products</span>
+                    </a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">
+                        <span class="lang-fr">Contact</span>
+                        <span class="lang-en">Contact</span>
+                    </a>
                     
                     <!-- Language Toggle -->
                     <label class="language-switch ml-4">
@@ -181,7 +216,8 @@
                     </label>
                     
                     <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
-                        Demander un devis
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
                     </button>
                 </div>
 
@@ -197,12 +233,30 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
             <div class="px-4 py-6 space-y-4">
-                <a href="#accueil" class="block text-gray-900 font-medium">Accueil</a>
-                <a href="#services" class="block text-gray-600 hover:text-gray-900 font-medium">Services</a>
-                <a href="#realisations" class="block text-gray-600 hover:text-gray-900 font-medium">Réalisations</a>
-                <a href="#apropos" class="block text-gray-600 hover:text-gray-900 font-medium">À Propos</a>
-                <a href="#produits" class="block text-gray-600 hover:text-gray-900 font-medium">Produits</a>
-                <a href="#contact" class="block text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+                <a href="#accueil" class="block text-gray-900 font-medium">
+                    <span class="lang-fr">Accueil</span>
+                    <span class="lang-en">Home</span>
+                </a>
+                <a href="#services" class="block text-gray-600 hover:text-gray-900 font-medium">
+                    <span class="lang-fr">Services</span>
+                    <span class="lang-en">Services</span>
+                </a>
+                <a href="#realisations" class="block text-gray-600 hover:text-gray-900 font-medium">
+                    <span class="lang-fr">Réalisations</span>
+                    <span class="lang-en">Achievements</span>
+                </a>
+                <a href="#apropos" class="block text-gray-600 hover:text-gray-900 font-medium">
+                    <span class="lang-fr">À Propos</span>
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="#produits" class="block text-gray-600 hover:text-gray-900 font-medium">
+                    <span class="lang-fr">Produits</span>
+                    <span class="lang-en">Products</span>
+                </a>
+                <a href="#contact" class="block text-gray-600 hover:text-gray-900 font-medium">
+                    <span class="lang-fr">Contact</span>
+                    <span class="lang-en">Contact</span>
+                </a>
                 
                 <div class="flex items-center justify-between pt-4">
                     <label class="language-switch">
@@ -211,7 +265,8 @@
                     </label>
                     
                     <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
-                        Devis
+                        <span class="lang-fr">Devis</span>
+                        <span class="lang-en">Quote</span>
                     </button>
                 </div>
             </div>
@@ -224,18 +279,23 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-in">
                     <h1 class="text-5xl font-bold mb-6 leading-tight">
-                        EVENTECKS SARL<br>
-                        <span class="text-orange-300">Un monde nouveau des solutions nouvelles</span>
+                        <span class="lang-fr">EVENTECKS SARL<br>
+                        <span class="text-orange-300">Un monde nouveau des solutions nouvelles</span></span>
+                        <span class="lang-en">EVENTECKS SARL<br>
+                        <span class="text-orange-300">A new world of new solutions</span></span>
                     </h1>
                     <p class="text-xl mb-8 text-blue-100">
-                        Votre partenaire multisectoriel pour l'innovation et l'excellence en Côte d'Ivoire
+                        <span class="lang-fr">Votre partenaire multisectoriel pour l'innovation et l'excellence en Côte d'Ivoire</span>
+                        <span class="lang-en">Your multisectoral partner for innovation and excellence in Côte d'Ivoire</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
-                            Découvrir nos services
+                            <span class="lang-fr">Découvrir nos services</span>
+                            <span class="lang-en">Discover our services</span>
                         </button>
                         <button onclick="scrollToSection('contact')" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
-                            Nous contacter
+                            <span class="lang-fr">Nous contacter</span>
+                            <span class="lang-en">Contact us</span>
                         </button>
                     </div>
                 </div>
@@ -252,9 +312,13 @@
     <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Domaines d'Expertise</h2>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="lang-fr">Nos Domaines d'Expertise</span>
+                    <span class="lang-en">Our Areas of Expertise</span>
+                </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Découvrez notre large gamme de services professionnels adaptés à vos besoins
+                    <span class="lang-fr">Découvrez notre large gamme de services professionnels adaptés à vos besoins</span>
+                    <span class="lang-en">Discover our wide range of professional services tailored to your needs</span>
                 </p>
             </div>
 
@@ -265,16 +329,26 @@
                         <div class="bg-blue-100 p-3 rounded-full">
                             <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
                         </div>
-                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Ingénierie & Sécurité Informatique</h3>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                            <span class="lang-fr">Ingénierie & Sécurité Informatique</span>
+                            <span class="lang-en">IT Engineering & Security</span>
+                        </h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        <strong class="text-blue-600">Slogan :</strong> "Sécurité digitale, performance assurée"
+                        <strong class="text-blue-600">
+                            <span class="lang-fr">Slogan :</span>
+                            <span class="lang-en">Slogan:</span>
+                        </strong> 
+                        <span class="lang-fr">"Sécurité digitale, performance assurée"</span>
+                        <span class="lang-en">"Digital security, guaranteed performance"</span>
                     </p>
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Sécurité informatique" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
                     <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="lang-fr">En savoir plus</span>
+                        <span class="lang-en">Learn more</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
@@ -284,16 +358,26 @@
                         <div class="bg-orange-100 p-3 rounded-full">
                             <i class="fas fa-calendar-alt text-orange-600 text-2xl"></i>
                         </div>
-                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Événementiel & Communication</h3>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                            <span class="lang-fr">Événementiel & Communication</span>
+                            <span class="lang-en">Events & Communication</span>
+                        </h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        <strong class="text-orange-600">Slogan :</strong> "Des événements mémorables, une communication impactante"
+                        <strong class="text-orange-600">
+                            <span class="lang-fr">Slogan :</span>
+                            <span class="lang-en">Slogan:</span>
+                        </strong> 
+                        <span class="lang-fr">"Des événements mémorables, une communication impactante"</span>
+                        <span class="lang-en">"Memorable events, impactful communication"</span>
                     </p>
                     <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Événementiel" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
                     <a href="#contact" class="text-orange-600 hover:text-orange-800 font-medium inline-flex items-center">
-                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="lang-fr">En savoir plus</span>
+                        <span class="lang-en">Learn more</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
@@ -303,16 +387,26 @@
                         <div class="bg-green-100 p-3 rounded-full">
                             <i class="fas fa-chart-line text-green-600 text-2xl"></i>
                         </div>
-                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Services Financiers & Immobiliers</h3>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                            <span class="lang-fr">Services Financiers & Immobiliers</span>
+                            <span class="lang-en">Financial & Real Estate Services</span>
+                        </h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        <strong class="text-green-600">Slogan :</strong> "Votre réussite financière, notre priorité"
+                        <strong class="text-green-600">
+                            <span class="lang-fr">Slogan :</span>
+                            <span class="lang-en">Slogan:</span>
+                        </strong> 
+                        <span class="lang-fr">"Votre réussite financière, notre priorité"</span>
+                        <span class="lang-en">"Your financial success, our priority"</span>
                     </p>
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Services financiers" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
                     <a href="#contact" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center">
-                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="lang-fr">En savoir plus</span>
+                        <span class="lang-en">Learn more</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
@@ -322,16 +416,26 @@
                         <div class="bg-green-100 p-3 rounded-full">
                             <i class="fas fa-tractor text-green-500 text-2xl"></i>
                         </div>
-                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Produits Agricoles & Fermiers</h3>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                            <span class="lang-fr">Produits Agricoles & Fermiers</span>
+                            <span class="lang-en">Agricultural & Farm Products</span>
+                        </h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        <strong class="text-green-500">Slogan :</strong> "Qualité naturelle, excellence agricole"
+                        <strong class="text-green-500">
+                            <span class="lang-fr">Slogan :</span>
+                            <span class="lang-en">Slogan:</span>
+                        </strong> 
+                        <span class="lang-fr">"Qualité naturelle, excellence agricole"</span>
+                        <span class="lang-en">"Natural quality, agricultural excellence"</span>
                     </p>
                     <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Produits agricoles" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
                     <a href="#contact" class="text-green-500 hover:text-green-700 font-medium inline-flex items-center">
-                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="lang-fr">En savoir plus</span>
+                        <span class="lang-en">Learn more</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
@@ -341,16 +445,26 @@
                         <div class="bg-gray-100 p-3 rounded-full">
                             <i class="fas fa-hard-hat text-gray-600 text-2xl"></i>
                         </div>
-                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Bâtiment & Travaux Publics</h3>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                            <span class="lang-fr">Bâtiment & Travaux Publics</span>
+                            <span class="lang-en">Building & Public Works</span>
+                        </h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        <strong class="text-gray-600">Slogan :</strong> "Construire aujourd'hui, préparer demain"
+                        <strong class="text-gray-600">
+                            <span class="lang-fr">Slogan :</span>
+                            <span class="lang-en">Slogan:</span>
+                        </strong> 
+                        <span class="lang-fr">"Construire aujourd'hui, préparer demain"</span>
+                        <span class="lang-en">"Building today, preparing tomorrow"</span>
                     </p>
                     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Bâtiment et travaux publics" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
                     <a href="#contact" class="text-gray-600 hover:text-gray-800 font-medium inline-flex items-center">
-                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="lang-fr">En savoir plus</span>
+                        <span class="lang-en">Learn more</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
 
@@ -360,16 +474,26 @@
                         <div class="bg-blue-100 p-3 rounded-full">
                             <i class="fas fa-globe-americas text-blue-500 text-2xl"></i>
                         </div>
-                        <h3 class="ml-4 text-xl font-semibold text-gray-900">Import-Export & Commerce Général</h3>
+                        <h3 class="ml-4 text-xl font-semibold text-gray-900">
+                            <span class="lang-fr">Import-Export & Commerce Général</span>
+                            <span class="lang-en">Import-Export & General Trade</span>
+                        </h3>
                     </div>
                     <p class="text-gray-600 mb-4">
-                        <strong class="text-blue-500">Slogan :</strong> "Relier les marchés, créer des opportunités"
+                        <strong class="text-blue-500">
+                            <span class="lang-fr">Slogan :</span>
+                            <span class="lang-en">Slogan:</span>
+                        </strong> 
+                        <span class="lang-fr">"Relier les marchés, créer des opportunités"</span>
+                        <span class="lang-en">"Connecting markets, creating opportunities"</span>
                     </p>
                     <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Import-Export" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
                     <a href="#contact" class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center">
-                        En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        <span class="lang-fr">En savoir plus</span>
+                        <span class="lang-en">Learn more</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
@@ -380,8 +504,14 @@
     <section id="realisations" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Réalisations</h2>
-                <p class="text-xl text-gray-600">Découvrez nos projets et succès clients</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="lang-fr">Nos Réalisations</span>
+                    <span class="lang-en">Our Achievements</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    <span class="lang-fr">Découvrez nos projets et succès clients</span>
+                    <span class="lang-en">Discover our projects and client successes</span>
+                </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -390,9 +520,18 @@
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Projet IT" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Sécurisation Infrastructure IT</h3>
-                        <p class="text-gray-600 mb-4">Client: Banque Internationale</p>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">IT & Sécurité</span>
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span class="lang-fr">Sécurisation Infrastructure IT</span>
+                            <span class="lang-en">IT Infrastructure Security</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">Client: Banque Internationale</span>
+                            <span class="lang-en">Client: International Bank</span>
+                        </p>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                            <span class="lang-fr">IT & Sécurité</span>
+                            <span class="lang-en">IT & Security</span>
+                        </span>
                     </div>
                 </div>
 
@@ -401,9 +540,18 @@
                     <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Projet Agricole" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Modernisation Exploitation Agricole</h3>
-                        <p class="text-gray-600 mb-4">Client: AgroBusiness CI</p>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Agriculture</span>
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span class="lang-fr">Modernisation Exploitation Agricole</span>
+                            <span class="lang-en">Agricultural Operation Modernization</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">Client: AgroBusiness CI</span>
+                            <span class="lang-en">Client: AgroBusiness CI</span>
+                        </p>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                            <span class="lang-fr">Agriculture</span>
+                            <span class="lang-en">Agriculture</span>
+                        </span>
                     </div>
                 </div>
 
@@ -412,9 +560,18 @@
                     <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Projet Construction" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">Complexe Résidentiel</h3>
-                        <p class="text-gray-600 mb-4">Client: Promoteur Immobilier</p>
-                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">BTP</span>
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span class="lang-fr">Complexe Résidentiel</span>
+                            <span class="lang-en">Residential Complex</span>
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">Client: Promoteur Immobilier</span>
+                            <span class="lang-en">Client: Real Estate Developer</span>
+                        </p>
+                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">
+                            <span class="lang-fr">BTP</span>
+                            <span class="lang-en">Construction</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -431,7 +588,10 @@
                          class="rounded-xl shadow-lg w-full">
                 </div>
                 <div class="fade-in">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">À Propos d'EVENTECKS SARL</h2>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        <span class="lang-fr">À Propos d'EVENTECKS SARL</span>
+                        <span class="lang-en">About EVENTECKS SARL</span>
+                    </h2>
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
@@ -439,8 +599,14 @@
                                 <i class="fas fa-eye text-blue-600"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Notre Vision</h3>
-                                <p class="text-gray-600">Devenir le leader des solutions intégrées en combinant technologie, innovation et expertise sectorielle.</p>
+                                <h3 class="text-xl font-semibold mb-2">
+                                    <span class="lang-fr">Notre Vision</span>
+                                    <span class="lang-en">Our Vision</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Devenir le leader des solutions intégrées en combinant technologie, innovation et expertise sectorielle.</span>
+                                    <span class="lang-en">To become the leader in integrated solutions by combining technology, innovation and sector expertise.</span>
+                                </p>
                             </div>
                         </div>
 
@@ -449,8 +615,14 @@
                                 <i class="fas fa-bullseye text-orange-600"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Notre Mission</h3>
-                                <p class="text-gray-600">Fournir des services et produits de qualité supérieure qui répondent aux besoins diversifiés de nos clients.</p>
+                                <h3 class="text-xl font-semibold mb-2">
+                                    <span class="lang-fr">Notre Mission</span>
+                                    <span class="lang-en">Our Mission</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Fournir des services et produits de qualité supérieure qui répondent aux besoins diversifiés de nos clients.</span>
+                                    <span class="lang-en">To provide high quality services and products that meet the diverse needs of our customers.</span>
+                                </p>
                             </div>
                         </div>
 
@@ -459,8 +631,14 @@
                                 <i class="fas fa-handshake text-green-600"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Nos Valeurs</h3>
-                                <p class="text-gray-600">Innovation, intégrité, excellence et engagement envers la satisfaction client.</p>
+                                <h3 class="text-xl font-semibold mb-2">
+                                    <span class="lang-fr">Nos Valeurs</span>
+                                    <span class="lang-en">Our Values</span>
+                                </h3>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Innovation, intégrité, excellence et engagement envers la satisfaction client.</span>
+                                    <span class="lang-en">Innovation, integrity, excellence and commitment to customer satisfaction.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -473,15 +651,24 @@
     <section id="produits" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Nos Produits Phares</h2>
-                <p class="text-xl text-gray-600">Découvrez notre sélection de produits de qualité</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="lang-fr">Nos Produits Phares</span>
+                    <span class="lang-en">Our Featured Products</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    <span class="lang-fr">Découvrez notre sélection de produits de qualité</span>
+                    <span class="lang-en">Discover our selection of quality products</span>
+                </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- IT Security Product -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md fade-in">
                     <div class="bg-blue-600 p-6">
-                        <h3 class="text-white text-xl font-semibold">Solutions de Cybersécurité</h3>
+                        <h3 class="text-white text-xl font-semibold">
+                            <span class="lang-fr">Solutions de Cybersécurité</span>
+                            <span class="lang-en">Cybersecurity Solutions</span>
+                        </h3>
                     </div>
                     <div class="p-6">
                         <ul class="space-y-3">
@@ -489,24 +676,34 @@
                                 <div class="flex-shrink-0 text-blue-600">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Protection contre les cyberattaques</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Protection contre les cyberattaques</span>
+                                    <span class="lang-en">Protection against cyber attacks</span>
+                                </p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 text-blue-600">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Audits de sécurité</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Audits de sécurité</span>
+                                    <span class="lang-en">Security audits</span>
+                                </p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 text-blue-600">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Formation en sécurité</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Formation en sécurité</span>
+                                    <span class="lang-en">Security training</span>
+                                </p>
                             </li>
                         </ul>
                         <div class="mt-6">
                             <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
-                                En savoir plus
+                                <span class="lang-fr">En savoir plus</span>
+                                <span class="lang-en">Learn more</span>
                             </button>
                         </div>
                     </div>
@@ -515,7 +712,10 @@
                 <!-- Agricultural Product -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md fade-in">
                     <div class="bg-green-500 p-6">
-                        <h3 class="text-white text-xl font-semibold">Produits Agricoles Bio</h3>
+                        <h3 class="text-white text-xl font-semibold">
+                            <span class="lang-fr">Produits Agricoles Bio</span>
+                            <span class="lang-en">Organic Agricultural Products</span>
+                        </h3>
                     </div>
                     <div class="p-6">
                         <ul class="space-y-3">
@@ -523,24 +723,34 @@
                                 <div class="flex-shrink-0 text-green-500">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Fruits et légumes bio</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Fruits et légumes bio</span>
+                                    <span class="lang-en">Organic fruits and vegetables</span>
+                                </p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 text-green-500">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Produits laitiers fermiers</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Produits laitiers fermiers</span>
+                                    <span class="lang-en">Farm dairy products</span>
+                                </p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 text-green-500">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Équipements agricoles</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Équipements agricoles</span>
+                                    <span class="lang-en">Agricultural equipment</span>
+                                </p>
                             </li>
                         </ul>
                         <div class="mt-6">
                             <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition duration-300">
-                                En savoir plus
+                                <span class="lang-fr">En savoir plus</span>
+                                <span class="lang-en">Learn more</span>
                             </button>
                         </div>
                     </div>
@@ -549,7 +759,10 @@
                 <!-- Construction Product -->
                 <div class="bg-white rounded-lg overflow-hidden shadow-md fade-in">
                     <div class="bg-gray-600 p-6">
-                        <h3 class="text-white text-xl font-semibold">Matériaux de Construction</h3>
+                        <h3 class="text-white text-xl font-semibold">
+                            <span class="lang-fr">Matériaux de Construction</span>
+                            <span class="lang-en">Construction Materials</span>
+                        </h3>
                     </div>
                     <div class="p-6">
                         <ul class="space-y-3">
@@ -557,24 +770,34 @@
                                 <div class="flex-shrink-0 text-gray-600">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Ciments et agrégats</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Ciments et agrégats</span>
+                                    <span class="lang-en">Cements and aggregates</span>
+                                </p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 text-gray-600">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Matériaux de finition</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Matériaux de finition</span>
+                                    <span class="lang-en">Finishing materials</span>
+                                </p>
                             </li>
                             <li class="flex items-start">
                                 <div class="flex-shrink-0 text-gray-600">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <p class="ml-3 text-gray-600">Équipements TP</p>
+                                <p class="ml-3 text-gray-600">
+                                    <span class="lang-fr">Équipements TP</span>
+                                    <span class="lang-en">Construction equipment</span>
+                                </p>
                             </li>
                         </ul>
                         <div class="mt-6">
                             <button class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition duration-300">
-                                En savoir plus
+                                <span class="lang-fr">En savoir plus</span>
+                                <span class="lang-en">Learn more</span>
                             </button>
                         </div>
                     </div>
@@ -587,14 +810,23 @@
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">Contactez-nous</h2>
-                <p class="text-xl text-gray-600">Prêt à transformer vos projets en réalité ? Parlons-en !</p>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="lang-fr">Contactez-nous</span>
+                    <span class="lang-en">Contact Us</span>
+                </h2>
+                <p class="text-xl text-gray-600">
+                    <span class="lang-fr">Prêt à transformer vos projets en réalité ? Parlons-en !</span>
+                    <span class="lang-en">Ready to turn your projects into reality? Let's talk!</span>
+                </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Contact Info -->
                 <div class="fade-in">
-                    <h3 class="text-2xl font-semibold mb-6">Nos Coordonnées</h3>
+                    <h3 class="text-2xl font-semibold mb-6">
+                        <span class="lang-fr">Nos Coordonnées</span>
+                        <span class="lang-en">Our Contact Information</span>
+                    </h3>
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
@@ -602,7 +834,10 @@
                                 <i class="fas fa-map-marker-alt text-blue-600"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Adresse</h4>
+                                <h4 class="font-semibold">
+                                    <span class="lang-fr">Adresse</span>
+                                    <span class="lang-en">Address</span>
+                                </h4>
                                 <p class="text-gray-600">Abidjan-Marcory, Immeuble Plein Ciel<br>Boulevard Félix Houphouet Boigny<br>01 BP 5601 Abidjan 01</p>
                             </div>
                         </div>
@@ -612,7 +847,10 @@
                                 <i class="fas fa-phone-alt text-orange-600"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Téléphone</h4>
+                                <h4 class="font-semibold">
+                                    <span class="lang-fr">Téléphone</span>
+                                    <span class="lang-en">Phone</span>
+                                </h4>
                                 <p class="text-gray-600">+225 0505038403</p>
                             </div>
                         </div>
@@ -622,7 +860,10 @@
                                 <i class="fas fa-envelope text-blue-600"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Email</h4>
+                                <h4 class="font-semibold">
+                                    <span class="lang-fr">Email</span>
+                                    <span class="lang-en">Email</span>
+                                </h4>
                                 <p class="text-gray-600">eventecks@etik.com</p>
                             </div>
                         </div>
@@ -632,8 +873,14 @@
                                 <i class="fas fa-clock text-green-600"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Horaires</h4>
-                                <p class="text-gray-600">Lundi - Vendredi: 8h00 - 18h00</p>
+                                <h4 class="font-semibold">
+                                    <span class="lang-fr">Horaires</span>
+                                    <span class="lang-en">Business Hours</span>
+                                </h4>
+                                <p class="text-gray-600">
+                                    <span class="lang-fr">Lundi - Vendredi: 8h00 - 18h00</span>
+                                    <span class="lang-en">Monday - Friday: 8:00 AM - 6:00 PM</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -643,46 +890,84 @@
                 <div class="fade-in">
                     <form action="https://formspree.io/f/mblzdrap" method="POST" id="contactForm" class="contact-form">
                         <div class="mb-4">
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nom complet *</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Nom complet *</span>
+                                <span class="lang-en">Full Name *</span>
+                            </label>
                             <input type="text" id="name" name="name" required class="form-input">
                         </div>
 
                         <div class="mb-4">
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Email *</span>
+                                <span class="lang-en">Email *</span>
+                            </label>
                             <input type="email" id="email" name="email" required class="form-input">
                         </div>
 
                         <div class="mb-4">
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Téléphone</span>
+                                <span class="lang-en">Phone</span>
+                            </label>
                             <input type="tel" id="phone" name="phone" class="form-input">
                         </div>
 
                         <div class="mb-4">
-                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service concerné</label>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Service concerné</span>
+                                <span class="lang-en">Service concerned</span>
+                            </label>
                             <select id="service" name="service" class="form-input">
-                                <option value="">Sélectionnez un service</option>
-                                <option value="it">Ingénierie & Sécurité IT</option>
-                                <option value="event">Événementiel & Communication</option>
-                                <option value="finance">Services Financiers</option>
-                                <option value="agriculture">Produits Agricoles</option>
-                                <option value="btp">Bâtiment & TP</option>
-                                <option value="import">Import-Export</option>
+                                <option value="">
+                                    <span class="lang-fr">Sélectionnez un service</span>
+                                    <span class="lang-en">Select a service</span>
+                                </option>
+                                <option value="it">
+                                    <span class="lang-fr">Ingénierie & Sécurité IT</span>
+                                    <span class="lang-en">IT Engineering & Security</span>
+                                </option>
+                                <option value="event">
+                                    <span class="lang-fr">Événementiel & Communication</span>
+                                    <span class="lang-en">Events & Communication</span>
+                                </option>
+                                <option value="finance">
+                                    <span class="lang-fr">Services Financiers</span>
+                                    <span class="lang-en">Financial Services</span>
+                                </option>
+                                <option value="agriculture">
+                                    <span class="lang-fr">Produits Agricoles</span>
+                                    <span class="lang-en">Agricultural Products</span>
+                                </option>
+                                <option value="btp">
+                                    <span class="lang-fr">Bâtiment & TP</span>
+                                    <span class="lang-en">Building & Construction</span>
+                                </option>
+                                <option value="import">
+                                    <span class="lang-fr">Import-Export</span>
+                                    <span class="lang-en">Import-Export</span>
+                                </option>
                             </select>
                         </div>
 
                         <div class="mb-6">
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Message *</span>
+                                <span class="lang-en">Message *</span>
+                            </label>
                             <textarea id="message" name="message" rows="5" required class="form-input"></textarea>
                         </div>
 
                         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300">
-                            Envoyer le message
+                            <span class="lang-fr">Envoyer le message</span>
+                            <span class="lang-en">Send message</span>
                         </button>
                     </form>
                     
                     <!-- Message de confirmation -->
                     <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
-                        ✅ Message envoyé avec succès ! Nous vous répondrons rapidement.
+                        <span class="lang-fr">✅ Message envoyé avec succès ! Nous vous répondrons rapidement.</span>
+                        <span class="lang-en">✅ Message sent successfully! We will respond to you quickly.</span>
                     </div>
                 </div>
             </div>
@@ -697,7 +982,8 @@
                 <div>
                     <h3 class="text-xl font-semibold mb-4">EVENTECKS SARL</h3>
                     <p class="text-gray-400 mb-4">
-                        Un monde nouveau des solutions nouvelles. Votre partenaire de confiance pour l'innovation et l'excellence.
+                        <span class="lang-fr">Un monde nouveau des solutions nouvelles. Votre partenaire de confiance pour l'innovation et l'excellence.</span>
+                        <span class="lang-en">A new world of new solutions. Your trusted partner for innovation and excellence.</span>
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white transition duration-300">
@@ -714,34 +1000,71 @@
 
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Liens Rapides</h3>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Liens Rapides</span>
+                        <span class="lang-en">Quick Links</span>
+                    </h3>
                     <ul class="space-y-2">
-                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition duration-300">Accueil</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
-                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition duration-300">À Propos</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                        <li><a href="#accueil" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Accueil</span>
+                            <span class="lang-en">Home</span>
+                        </a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Services</span>
+                            <span class="lang-en">Services</span>
+                        </a></li>
+                        <li><a href="#apropos" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">À Propos</span>
+                            <span class="lang-en">About</span>
+                        </a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Contact</span>
+                            <span class="lang-en">Contact</span>
+                        </a></li>
                     </ul>
                 </div>
 
                 <!-- Services -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Nos Services</h3>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Nos Services</span>
+                        <span class="lang-en">Our Services</span>
+                    </h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sécurité Informatique</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Événementiel</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Services Financiers</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Produits Agricoles</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Sécurité Informatique</span>
+                            <span class="lang-en">IT Security</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Événementiel</span>
+                            <span class="lang-en">Events</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Services Financiers</span>
+                            <span class="lang-en">Financial Services</span>
+                        </a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <span class="lang-fr">Produits Agricoles</span>
+                            <span class="lang-en">Agricultural Products</span>
+                        </a></li>
                     </ul>
                 </div>
 
                 <!-- Contact Footer -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">Contact</h3>
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Contact</span>
+                        <span class="lang-en">Contact</span>
+                    </h3>
                     <address class="text-gray-400 not-italic">
                         <p class="mb-2">Abidjan-Marcory</p>
                         <p class="mb-2">Immeuble Plein Ciel</p>
                         <p class="mb-2">01 BP 5601 Abidjan 01</p>
-                        <p class="mb-2">Tél: +225 0505038403</p>
+                        <p class="mb-2">
+                            <span class="lang-fr">Tél:</span>
+                            <span class="lang-en">Tel:</span>
+                            +225 0505038403
+                        </p>
                         <p>Email: eventecks@etik.com</p>
                     </address>
                 </div>
@@ -749,7 +1072,8 @@
 
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-400">
-                    &copy; 2025 EVENTECKS SARL. Tous droits réservés. | Capital social: 1.000.000 FCFA
+                    <span class="lang-fr">&copy; 2025 EVENTECKS SARL. Tous droits réservés. | Capital social: 1.000.000 FCFA</span>
+                    <span class="lang-en">&copy; 2025 EVENTECKS SARL. All rights reserved. | Share capital: 1,000,000 FCFA</span>
                 </p>
             </div>
         </div>
@@ -810,7 +1134,8 @@
             const originalText = submitButton.innerHTML;
             
             // Afficher le loading
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Envoi en cours...';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + 
+                (document.body.classList.contains('english') ? 'Sending...' : 'Envoi en cours...');
             submitButton.disabled = true;
             
             try {
@@ -835,7 +1160,9 @@
                     throw new Error('Erreur lors de l\'envoi');
                 }
             } catch (error) {
-                alert('Erreur lors de l\'envoi du message. Veuillez nous contacter directement par téléphone au +225 0505038403.');
+                alert(document.body.classList.contains('english') 
+                    ? 'Error sending message. Please contact us directly by phone at +225 0505038403.'
+                    : 'Erreur lors de l\'envoi du message. Veuillez nous contacter directement par téléphone au +225 0505038403.');
             } finally {
                 // Réinitialiser le bouton
                 submitButton.innerHTML = originalText;
@@ -852,6 +1179,47 @@
                 nav.classList.remove('shadow-xl');
             }
         });
+
+        // Gestion du changement de langue
+        function toggleLanguage() {
+            const isEnglish = document.body.classList.toggle('english');
+            document.documentElement.lang = isEnglish ? 'en' : 'fr';
+            
+            // Mettre à jour le titre de la page
+            document.title = isEnglish 
+                ? 'EVENTECKS SARL - A new world of new solutions' 
+                : 'EVENTECKS SARL - Un monde nouveau des solutions nouvelles';
+            
+            // Mettre à jour la meta description
+            const metaDescription = document.querySelector('meta[name="description"]');
+            metaDescription.content = isEnglish
+                ? 'EVENTECKS SARL - Your multisectoral partner in Côte d\'Ivoire. IT Engineering, Events, Financial Services, Agricultural Products, Construction, Import-Export.'
+                : 'EVENTECKS SARL - Votre partenaire multisectoriel en Côte d\'Ivoire. Ingénierie IT, Événementiel, Services Financiers, Produits Agricoles, BTP, Import-Export.';
+            
+            // Synchroniser les interrupteurs de langue
+            document.getElementById('languageToggle').checked = isEnglish;
+            document.getElementById('mobileLanguageToggle').checked = isEnglish;
+            
+            // Sauvegarder la préférence
+            localStorage.setItem('language', isEnglish ? 'en' : 'fr');
+        }
+
+        // Initialiser la langue
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage === 'en') {
+            document.body.classList.add('english');
+            document.documentElement.lang = 'en';
+            document.getElementById('languageToggle').checked = true;
+            document.getElementById('mobileLanguageToggle').checked = true;
+            document.title = 'EVENTECKS SARL - A new world of new solutions';
+            
+            const metaDescription = document.querySelector('meta[name="description"]');
+            metaDescription.content = 'EVENTECKS SARL - Your multisectoral partner in Côte d\'Ivoire. IT Engineering, Events, Financial Services, Agricultural Products, Construction, Import-Export.';
+        }
+
+        // Écouteurs d'événements pour les interrupteurs de langue
+        document.getElementById('languageToggle').addEventListener('change', toggleLanguage);
+        document.getElementById('mobileLanguageToggle').addEventListener('change', toggleLanguage);
     </script>
 </body>
 </html>
