@@ -34,6 +34,7 @@
         .service-card {
             transition: all 0.3s ease;
             border-left: 4px solid transparent;
+            cursor: pointer;
         }
         
         .service-card:hover {
@@ -167,6 +168,152 @@
         body.english .lang-en {
             display: block;
         }
+        
+        /* Styles pour les modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            color: var(--primary-blue);
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .service-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+        
+        .service-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .quote-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quote-btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+        
+        .service-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .nav-btn {
+            background: #f3f4f6;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background: #e5e7eb;
+        }
+        
+        @media (max-width: 768px) {
+            .service-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -289,7 +436,7 @@
                         <span class="lang-en">Your multisectoral partner for innovation and excellence in Côte d'Ivoire</span>
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
+                        <button onclick="scrollToSection('services')" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
                             <span class="lang-fr">Découvrir nos services</span>
                             <span class="lang-en">Discover our services</span>
                         </button>
@@ -324,7 +471,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1: IT Security -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 fade-in">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500 fade-in" onclick="openServiceModal('it')">
                     <div class="flex items-center mb-4">
                         <div class="bg-blue-100 p-3 rounded-full">
                             <i class="fas fa-shield-alt text-blue-600 text-2xl"></i>
@@ -345,15 +492,15 @@
                     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Sécurité informatique" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
-                    <a href="#contact" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+                    <div class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
                         <span class="lang-fr">En savoir plus</span>
                         <span class="lang-en">Learn more</span>
                         <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </div>
                 </div>
 
                 <!-- Service 2: Event Management -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-500 fade-in">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-orange-500 fade-in" onclick="openServiceModal('event')">
                     <div class="flex items-center mb-4">
                         <div class="bg-orange-100 p-3 rounded-full">
                             <i class="fas fa-calendar-alt text-orange-600 text-2xl"></i>
@@ -374,15 +521,15 @@
                     <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Événementiel" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
-                    <a href="#contact" class="text-orange-600 hover:text-orange-800 font-medium inline-flex items-center">
+                    <div class="text-orange-600 hover:text-orange-800 font-medium inline-flex items-center cursor-pointer">
                         <span class="lang-fr">En savoir plus</span>
                         <span class="lang-en">Learn more</span>
                         <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </div>
                 </div>
 
                 <!-- Service 3: Financial Services -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500 fade-in">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500 fade-in" onclick="openServiceModal('finance')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full">
                             <i class="fas fa-chart-line text-green-600 text-2xl"></i>
@@ -403,15 +550,15 @@
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Services financiers" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
-                    <a href="#contact" class="text-green-600 hover:text-green-800 font-medium inline-flex items-center">
+                    <div class="text-green-600 hover:text-green-800 font-medium inline-flex items-center cursor-pointer">
                         <span class="lang-fr">En savoir plus</span>
                         <span class="lang-en">Learn more</span>
                         <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </div>
                 </div>
 
                 <!-- Service 4: Agricultural Products -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-400 fade-in">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-green-400 fade-in" onclick="openServiceModal('agriculture')">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 p-3 rounded-full">
                             <i class="fas fa-tractor text-green-500 text-2xl"></i>
@@ -432,15 +579,15 @@
                     <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Produits agricoles" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
-                    <a href="#contact" class="text-green-500 hover:text-green-700 font-medium inline-flex items-center">
+                    <div class="text-green-500 hover:text-green-700 font-medium inline-flex items-center cursor-pointer">
                         <span class="lang-fr">En savoir plus</span>
                         <span class="lang-en">Learn more</span>
                         <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </div>
                 </div>
 
                 <!-- Service 5: Construction -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-500 fade-in">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-500 fade-in" onclick="openServiceModal('btp')">
                     <div class="flex items-center mb-4">
                         <div class="bg-gray-100 p-3 rounded-full">
                             <i class="fas fa-hard-hat text-gray-600 text-2xl"></i>
@@ -461,15 +608,15 @@
                     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Bâtiment et travaux publics" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
-                    <a href="#contact" class="text-gray-600 hover:text-gray-800 font-medium inline-flex items-center">
+                    <div class="text-gray-600 hover:text-gray-800 font-medium inline-flex items-center cursor-pointer">
                         <span class="lang-fr">En savoir plus</span>
                         <span class="lang-en">Learn more</span>
                         <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </div>
                 </div>
 
                 <!-- Service 6: Import-Export -->
-                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-400 fade-in">
+                <div class="service-card bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-400 fade-in" onclick="openServiceModal('import')">
                     <div class="flex items-center mb-4">
                         <div class="bg-blue-100 p-3 rounded-full">
                             <i class="fas fa-globe-americas text-blue-500 text-2xl"></i>
@@ -490,11 +637,11 @@
                     <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
                          alt="Import-Export" 
                          class="w-full h-48 object-cover rounded-lg mb-4">
-                    <a href="#contact" class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center">
+                    <div class="text-blue-500 hover:text-blue-700 font-medium inline-flex items-center cursor-pointer">
                         <span class="lang-fr">En savoir plus</span>
                         <span class="lang-en">Learn more</span>
                         <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -701,7 +848,7 @@
                             </li>
                         </ul>
                         <div class="mt-6">
-                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
+                            <button onclick="openServiceModal('it')" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-300">
                                 <span class="lang-fr">En savoir plus</span>
                                 <span class="lang-en">Learn more</span>
                             </button>
@@ -748,7 +895,7 @@
                             </li>
                         </ul>
                         <div class="mt-6">
-                            <button class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition duration-300">
+                            <button onclick="openServiceModal('agriculture')" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition duration-300">
                                 <span class="lang-fr">En savoir plus</span>
                                 <span class="lang-en">Learn more</span>
                             </button>
@@ -795,7 +942,7 @@
                             </li>
                         </ul>
                         <div class="mt-6">
-                            <button class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition duration-300">
+                            <button onclick="openServiceModal('btp')" class="w-full bg-gray-600 hover:bg-gray-700 text-white py-2 px-4 rounded-md transition duration-300">
                                 <span class="lang-fr">En savoir plus</span>
                                 <span class="lang-en">Learn more</span>
                             </button>
@@ -1079,6 +1226,739 @@
         </div>
     </footer>
 
+    <!-- Service Detail Modals -->
+    <!-- Modal for IT Services -->
+    <div id="modal-it" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-it')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Ingénierie & Sécurité Informatique</span>
+                    <span class="lang-en">IT Engineering & Security</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Solutions complètes pour la sécurité et la performance de vos systèmes informatiques</span>
+                    <span class="lang-en">Complete solutions for the security and performance of your IT systems</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="service-detail-grid">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span class="lang-fr">Nos Solutions</span>
+                            <span class="lang-en">Our Solutions</span>
+                        </h3>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt text-blue-600"></i>
+                                <span class="lang-fr">Cybersécurité</span>
+                                <span class="lang-en">Cybersecurity</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-network-wired text-blue-600"></i>
+                                <span class="lang-fr">Réseaux & Infrastructure</span>
+                                <span class="lang-en">Networks & Infrastructure</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-cloud text-blue-600"></i>
+                                <span class="lang-fr">Solutions Cloud</span>
+                                <span class="lang-en">Cloud Solutions</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-mobile-alt text-blue-600"></i>
+                                <span class="lang-fr">Applications Mobiles</span>
+                                <span class="lang-en">Mobile Applications</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-database text-blue-600"></i>
+                                <span class="lang-fr">Gestion de Données</span>
+                                <span class="lang-en">Data Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-user-shield text-blue-600"></i>
+                                <span class="lang-fr">Audits de Sécurité</span>
+                                <span class="lang-en">Security Audits</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="IT Services" class="service-image">
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">
+                                Nous proposons des solutions complètes en ingénierie informatique, cybersécurité et télécommunications. 
+                                Notre équipe d'experts vous accompagne dans la sécurisation de vos infrastructures, le développement 
+                                d'applications sur mesure et l'optimisation de vos systèmes.
+                            </span>
+                            <span class="lang-en">
+                                We offer complete solutions in IT engineering, cybersecurity and telecommunications.
+                                Our team of experts supports you in securing your infrastructure, developing
+                                custom applications and optimizing your systems.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Projets Récents</span>
+                        <span class="lang-en">Recent Projects</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">
+                                <span class="lang-fr">Sécurisation Banque Internationale</span>
+                                <span class="lang-en">International Bank Security</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Mise en place d'un système de sécurité complet pour une banque internationale</span>
+                                <span class="lang-en">Implementation of a complete security system for an international bank</span>
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">
+                                <span class="lang-fr">Application Mobile Entreprise</span>
+                                <span class="lang-en">Enterprise Mobile Application</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Développement d'une application mobile pour la gestion d'entreprise</span>
+                                <span class="lang-en">Development of a mobile application for business management</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-nav">
+                    <button class="nav-btn" onclick="openServiceModal('import')">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="lang-fr">Service précédent</span>
+                        <span class="lang-en">Previous service</span>
+                    </button>
+                    <button class="quote-btn" onclick="requestQuote('it')">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                    <button class="nav-btn" onclick="openServiceModal('event')">
+                        <span class="lang-fr">Service suivant</span>
+                        <span class="lang-en">Next service</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Event Services -->
+    <div id="modal-event" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-event')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Événementiel & Communication</span>
+                    <span class="lang-en">Events & Communication</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Organisation d'événements mémorables et stratégies de communication impactantes</span>
+                    <span class="lang-en">Organization of memorable events and impactful communication strategies</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="service-detail-grid">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span class="lang-fr">Nos Prestations</span>
+                            <span class="lang-en">Our Services</span>
+                        </h3>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-calendar-check text-orange-600"></i>
+                                <span class="lang-fr">Organisation d'Événements</span>
+                                <span class="lang-en">Event Organization</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bullhorn text-orange-600"></i>
+                                <span class="lang-fr">Stratégie de Communication</span>
+                                <span class="lang-en">Communication Strategy</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-photo-video text-orange-600"></i>
+                                <span class="lang-fr">Production Audiovisuelle</span>
+                                <span class="lang-en">Audiovisual Production</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-users text-orange-600"></i>
+                                <span class="lang-fr">Animation Événementielle</span>
+                                <span class="lang-en">Event Animation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line text-orange-600"></i>
+                                <span class="lang-fr">Communication Digitale</span>
+                                <span class="lang-en">Digital Communication</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-microphone text-orange-600"></i>
+                                <span class="lang-fr">Conférences & Séminaires</span>
+                                <span class="lang-en">Conferences & Seminars</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Event Services" class="service-image">
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">
+                                Nous créons des expériences événementielles uniques et mémorables. De la conception à la réalisation, 
+                                notre équipe s'occupe de tous les aspects de votre événement : logistique, communication, animation 
+                                et suivi post-événement.
+                            </span>
+                            <span class="lang-en">
+                                We create unique and memorable event experiences. From conception to realization,
+                                our team handles all aspects of your event: logistics, communication, animation
+                                and post-event follow-up.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Événements Réalisés</span>
+                        <span class="lang-en">Events Organized</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800">
+                                <span class="lang-fr">Lancement Produit National</span>
+                                <span class="lang-en">National Product Launch</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Organisation complète du lancement d'un nouveau produit sur le marché ivoirien</span>
+                                <span class="lang-en">Complete organization of a new product launch on the Ivorian market</span>
+                            </p>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-800">
+                                <span class="lang-fr">Conférence Internationale</span>
+                                <span class="lang-en">International Conference</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Gestion logistique et communication pour une conférence de 500 participants</span>
+                                <span class="lang-en">Logistics and communication management for a 500-participant conference</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-nav">
+                    <button class="nav-btn" onclick="openServiceModal('it')">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="lang-fr">Service précédent</span>
+                        <span class="lang-en">Previous service</span>
+                    </button>
+                    <button class="quote-btn" onclick="requestQuote('event')">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                    <button class="nav-btn" onclick="openServiceModal('finance')">
+                        <span class="lang-fr">Service suivant</span>
+                        <span class="lang-en">Next service</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Financial Services -->
+    <div id="modal-finance" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-finance')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Services Financiers & Immobiliers</span>
+                    <span class="lang-en">Financial & Real Estate Services</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Solutions complètes pour votre réussite financière et immobilière</span>
+                    <span class="lang-en">Complete solutions for your financial and real estate success</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="service-detail-grid">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span class="lang-fr">Nos Domaines</span>
+                            <span class="lang-en">Our Areas</span>
+                        </h3>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-chart-line text-green-600"></i>
+                                <span class="lang-fr">Conseil Financier</span>
+                                <span class="lang-en">Financial Advisory</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-home text-green-600"></i>
+                                <span class="lang-fr">Transaction Immobilière</span>
+                                <span class="lang-en">Real Estate Transaction</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-hand-holding-usd text-green-600"></i>
+                                <span class="lang-fr">Gestion de Patrimoine</span>
+                                <span class="lang-en">Wealth Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-file-invoice-dollar text-green-600"></i>
+                                <span class="lang-fr">Audit Financier</span>
+                                <span class="lang-en">Financial Audit</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-building text-green-600"></i>
+                                <span class="lang-fr">Gestion Immobilière</span>
+                                <span class="lang-en">Property Management</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-balance-scale text-green-600"></i>
+                                <span class="lang-fr">Évaluation Patrimoniale</span>
+                                <span class="lang-en">Asset Valuation</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Financial Services" class="service-image">
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">
+                                Nous accompagnons particuliers et entreprises dans leurs projets financiers et immobiliers. 
+                                Notre expertise couvre la gestion de patrimoine, les transactions immobilières, l'audit financier 
+                                et le conseil en investissement.
+                            </span>
+                            <span class="lang-en">
+                                We support individuals and companies in their financial and real estate projects.
+                                Our expertise covers wealth management, real estate transactions, financial audit
+                                and investment advisory.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Réalisations Récentes</span>
+                        <span class="lang-en">Recent Achievements</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800">
+                                <span class="lang-fr">Optimisation Patrimoniale</span>
+                                <span class="lang-en">Wealth Optimization</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Stratégie d'optimisation pour un patrimoine de 2 milliards FCFA</span>
+                                <span class="lang-en">Optimization strategy for a 2 billion FCFA estate</span>
+                            </p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800">
+                                <span class="lang-fr">Transaction Commerciale</span>
+                                <span class="lang-en">Commercial Transaction</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Négociation et finalisation d'une transaction immobilière commerciale</span>
+                                <span class="lang-en">Negotiation and finalization of a commercial real estate transaction</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-nav">
+                    <button class="nav-btn" onclick="openServiceModal('event')">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="lang-fr">Service précédent</span>
+                        <span class="lang-en">Previous service</span>
+                    </button>
+                    <button class="quote-btn" onclick="requestQuote('finance')">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                    <button class="nav-btn" onclick="openServiceModal('agriculture')">
+                        <span class="lang-fr">Service suivant</span>
+                        <span class="lang-en">Next service</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Agricultural Services -->
+    <div id="modal-agriculture" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-agriculture')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Produits Agricoles & Fermiers</span>
+                    <span class="lang-en">Agricultural & Farm Products</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Des produits de qualité supérieure pour une alimentation saine et naturelle</span>
+                    <span class="lang-en">High quality products for healthy and natural nutrition</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="service-detail-grid">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span class="lang-fr">Nos Produits</span>
+                            <span class="lang-en">Our Products</span>
+                        </h3>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-apple-alt text-green-500"></i>
+                                <span class="lang-fr">Fruits & Légumes Bio</span>
+                                <span class="lang-en">Organic Fruits & Vegetables</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-seedling text-green-500"></i>
+                                <span class="lang-fr">Produits de la Terre</span>
+                                <span class="lang-en">Farm Products</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-cheese text-green-500"></i>
+                                <span class="lang-fr">Produits Laitiers Fermiers</span>
+                                <span class="lang-en">Farm Dairy Products</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-wheat text-green-500"></i>
+                                <span class="lang-fr">Céréales & Grains</span>
+                                <span class="lang-en">Cereals & Grains</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tractor text-green-500"></i>
+                                <span class="lang-fr">Équipements Agricoles</span>
+                                <span class="lang-en">Agricultural Equipment</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tint text-green-500"></i>
+                                <span class="lang-fr">Systèmes d'Irrigation</span>
+                                <span class="lang-en">Irrigation Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Agricultural Products" class="service-image">
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">
+                                Nous proposons une gamme complète de produits agricoles de qualité, cultivés dans le respect 
+                                de l'environnement et des traditions. Nos produits fermiers garantissent fraîcheur, authenticité 
+                                et saveurs naturelles.
+                            </span>
+                            <span class="lang-en">
+                                We offer a complete range of quality agricultural products, grown with respect
+                                for the environment and traditions. Our farm products guarantee freshness, authenticity
+                                and natural flavors.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Nos Exploitations</span>
+                        <span class="lang-en">Our Farms</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800">
+                                <span class="lang-fr">Ferme Biologique</span>
+                                <span class="lang-en">Organic Farm</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Exploitation de 50 hectares dédiée à l'agriculture biologique</span>
+                                <span class="lang-en">50-hectare farm dedicated to organic farming</span>
+                            </p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800">
+                                <span class="lang-fr">Élevage Traditionnel</span>
+                                <span class="lang-en">Traditional Breeding</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Élevage respectueux des animaux et de l'environnement</span>
+                                <span class="lang-en">Breeding respectful of animals and the environment</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-nav">
+                    <button class="nav-btn" onclick="openServiceModal('finance')">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="lang-fr">Service précédent</span>
+                        <span class="lang-en">Previous service</span>
+                    </button>
+                    <button class="quote-btn" onclick="requestQuote('agriculture')">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                    <button class="nav-btn" onclick="openServiceModal('btp')">
+                        <span class="lang-fr">Service suivant</span>
+                        <span class="lang-en">Next service</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Construction Services -->
+    <div id="modal-btp" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-btp')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Bâtiment & Travaux Publics</span>
+                    <span class="lang-en">Building & Public Works</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Des constructions durables qui préparent l'avenir</span>
+                    <span class="lang-en">Sustainable constructions that prepare the future</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="service-detail-grid">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span class="lang-fr">Nos Compétences</span>
+                            <span class="lang-en">Our Skills</span>
+                        </h3>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-hard-hat text-gray-600"></i>
+                                <span class="lang-fr">Construction Bâtiment</span>
+                                <span class="lang-en">Building Construction</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-road text-gray-600"></i>
+                                <span class="lang-fr">Infrastructures Routières</span>
+                                <span class="lang-en">Road Infrastructure</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-tools text-gray-600"></i>
+                                <span class="lang-fr">Rénovation & Réhabilitation</span>
+                                <span class="lang-en">Renovation & Rehabilitation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-drafting-compass text-gray-600"></i>
+                                <span class="lang-fr">Architecture & Design</span>
+                                <span class="lang-en">Architecture & Design</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-truck-pickup text-gray-600"></i>
+                                <span class="lang-fr">Gros Œuvre</span>
+                                <span class="lang-en">Structural Work</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-paint-roller text-gray-600"></i>
+                                <span class="lang-fr">Second Œuvre</span>
+                                <span class="lang-en">Finishing Work</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Construction Services" class="service-image">
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">
+                                Nous réalisons des projets de construction et de travaux publics de qualité, 
+                                en respectant les délais et les normes en vigueur. Notre expertise couvre 
+                                tous les aspects de la construction, de la conception à la livraison.
+                            </span>
+                            <span class="lang-en">
+                                We carry out quality construction and public works projects,
+                                respecting deadlines and current standards. Our expertise covers
+                                all aspects of construction, from design to delivery.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Projets Réalisés</span>
+                        <span class="lang-en">Completed Projects</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">
+                                <span class="lang-fr">Complexe Résidentiel</span>
+                                <span class="lang-en">Residential Complex</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Construction d'un complexe de 50 logements à Abidjan</span>
+                                <span class="lang-en">Construction of a 50-unit residential complex in Abidjan</span>
+                            </p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">
+                                <span class="lang-fr">Route Nationale</span>
+                                <span class="lang-en">National Road</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Réhabilitation de 20km de route nationale</span>
+                                <span class="lang-en">Rehabilitation of 20km of national road</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-nav">
+                    <button class="nav-btn" onclick="openServiceModal('agriculture')">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="lang-fr">Service précédent</span>
+                        <span class="lang-en">Previous service</span>
+                    </button>
+                    <button class="quote-btn" onclick="requestQuote('btp')">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                    <button class="nav-btn" onclick="openServiceModal('import')">
+                        <span class="lang-fr">Service suivant</span>
+                        <span class="lang-en">Next service</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Import-Export Services -->
+    <div id="modal-import" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-import')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Import-Export & Commerce Général</span>
+                    <span class="lang-en">Import-Export & General Trade</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Votre pont vers les marchés internationaux</span>
+                    <span class="lang-en">Your bridge to international markets</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="service-detail-grid">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">
+                            <span class="lang-fr">Nos Services</span>
+                            <span class="lang-en">Our Services</span>
+                        </h3>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-ship text-blue-500"></i>
+                                <span class="lang-fr">Importation</span>
+                                <span class="lang-en">Import</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-plane text-blue-500"></i>
+                                <span class="lang-fr">Exportation</span>
+                                <span class="lang-en">Export</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-file-contract text-blue-500"></i>
+                                <span class="lang-fr">Douane & Formalités</span>
+                                <span class="lang-en">Customs & Formalities</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-warehouse text-blue-500"></i>
+                                <span class="lang-fr">Logistique & Stockage</span>
+                                <span class="lang-en">Logistics & Storage</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-handshake text-blue-500"></i>
+                                <span class="lang-fr">Négociation Commerciale</span>
+                                <span class="lang-en">Commercial Negotiation</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-globe text-blue-500"></i>
+                                <span class="lang-fr">Réseau International</span>
+                                <span class="lang-en">International Network</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" 
+                             alt="Import-Export Services" class="service-image">
+                        <p class="text-gray-600 mb-4">
+                            <span class="lang-fr">
+                                Nous facilitons vos échanges commerciaux internationaux grâce à notre expertise 
+                                en logistique, douane et négociation. Notre réseau international nous permet 
+                                d'offrir des solutions compétitives et efficaces pour vos opérations d'import-export.
+                            </span>
+                            <span class="lang-en">
+                                We facilitate your international trade exchanges thanks to our expertise
+                                in logistics, customs and negotiation. Our international network allows us
+                                to offer competitive and efficient solutions for your import-export operations.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <span class="lang-fr">Pays Partenaires</span>
+                        <span class="lang-en">Partner Countries</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">
+                                <span class="lang-fr">Europe & Asie</span>
+                                <span class="lang-en">Europe & Asia</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Réseau étendu avec l'Europe et les pays asiatiques</span>
+                                <span class="lang-en">Extended network with Europe and Asian countries</span>
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800">
+                                <span class="lang-fr">Afrique & Amérique</span>
+                                <span class="lang-en">Africa & America</span>
+                            </h4>
+                            <p class="text-sm text-gray-600 mt-2">
+                                <span class="lang-fr">Partenariats solides en Afrique et Amérique</span>
+                                <span class="lang-en">Strong partnerships in Africa and America</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-nav">
+                    <button class="nav-btn" onclick="openServiceModal('btp')">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="lang-fr">Service précédent</span>
+                        <span class="lang-en">Previous service</span>
+                    </button>
+                    <button class="quote-btn" onclick="requestQuote('import')">
+                        <i class="fas fa-file-alt"></i>
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                    <button class="nav-btn" onclick="openServiceModal('it')">
+                        <span class="lang-fr">Service suivant</span>
+                        <span class="lang-en">Next service</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script>
         // Mobile Menu Toggle
@@ -1220,6 +2100,57 @@
         // Écouteurs d'événements pour les interrupteurs de langue
         document.getElementById('languageToggle').addEventListener('change', toggleLanguage);
         document.getElementById('mobileLanguageToggle').addEventListener('change', toggleLanguage);
+
+        // Modal functions
+        function openServiceModal(serviceId) {
+            document.getElementById(`modal-${serviceId}`).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function requestQuote(serviceId) {
+            closeModal(`modal-${serviceId}`);
+            scrollToSection('contact');
+            
+            // Préremplir le formulaire avec le service sélectionné
+            setTimeout(() => {
+                const serviceSelect = document.getElementById('service');
+                serviceSelect.value = serviceId;
+                
+                // Ajouter un message contextuel
+                const messageTextarea = document.getElementById('message');
+                const isEnglish = document.body.classList.contains('english');
+                
+                const serviceTitles = {
+                    'it': { fr: 'Ingénierie & Sécurité IT', en: 'IT Engineering & Security' },
+                    'event': { fr: 'Événementiel & Communication', en: 'Events & Communication' },
+                    'finance': { fr: 'Services Financiers', en: 'Financial Services' },
+                    'agriculture': { fr: 'Produits Agricoles', en: 'Agricultural Products' },
+                    'btp': { fr: 'Bâtiment & TP', en: 'Building & Construction' },
+                    'import': { fr: 'Import-Export', en: 'Import-Export' }
+                };
+                
+                let prefix = isEnglish 
+                    ? `I'm interested in ${serviceTitles[serviceId].en}. Please provide me with a quote.\n\n`
+                    : `Je suis intéressé par ${serviceTitles[serviceId].fr}. Veuillez me fournir un devis.\n\n`;
+                
+                messageTextarea.value = prefix + messageTextarea.value;
+            }, 500);
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
     </script>
 </body>
 </html>
