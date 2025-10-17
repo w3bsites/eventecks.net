@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVENTECKS SARL - Un monde nouveau des solutions nouvelles</title>
-    <meta name="description" content="EVENTECKS SARL - Votre partenaire multisectoriel en Côte d'Ivoire. Ingénierie IT, Événementiel, Services Financiers, Produits Agricoles, BTP, Import-Export.">
+    <title>EVENTECKS sarl- Un monde nouveau des solutions nouvelles</title>
+    <meta name="description" content="EVENTECKS sarl - Votre partenaire multisectoriel en Côte d'Ivoire. Ingénierie IT, Événementiel, Services Financiers, Produits Agricoles, BTP, Import-Export.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -299,6 +299,16 @@
         .nav-btn:hover {
             background: #e5e7eb;
         }
+
+        .footer-service-link {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .footer-service-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
         
         @media (max-width: 768px) {
             .service-detail-grid {
@@ -324,7 +334,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <h2 class="text-2xl font-bold text-blue-600">EVENTECKS SARL</h2>
+                        <h2 class="text-2xl font-bold text-blue-600">EVENTECKS sarl</h2>
                         <p class="text-xs text-gray-500">Event-Technologies-Services</p>
                     </div>
                 </div>
@@ -362,7 +372,7 @@
                         <span class="slider"></span>
                     </label>
                     
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+                    <button onclick="openQuoteModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
                         <span class="lang-fr">Demander un devis</span>
                         <span class="lang-en">Request a quote</span>
                     </button>
@@ -411,7 +421,7 @@
                         <span class="slider"></span>
                     </label>
                     
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
+                    <button onclick="openQuoteModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium">
                         <span class="lang-fr">Devis</span>
                         <span class="lang-en">Quote</span>
                     </button>
@@ -426,9 +436,9 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="fade-in">
                     <h1 class="text-5xl font-bold mb-6 leading-tight">
-                        <span class="lang-fr">EVENTECKS SARL<br>
+                        <span class="lang-fr">EVENTECKS sarl<br>
                         <span class="text-orange-300">Un monde nouveau des solutions nouvelles</span></span>
-                        <span class="lang-en">EVENTECKS SARL<br>
+                        <span class="lang-en">EVENTECKS sarl<br>
                         <span class="text-orange-300">A new world of new solutions</span></span>
                     </h1>
                     <p class="text-xl mb-8 text-blue-100">
@@ -736,8 +746,8 @@
                 </div>
                 <div class="fade-in">
                     <h2 class="text-4xl font-bold text-gray-900 mb-6">
-                        <span class="lang-fr">À Propos d'EVENTECKS SARL</span>
-                        <span class="lang-en">About EVENTECKS SARL</span>
+                        <span class="lang-fr">À Propos d'EVENTECKS sarl</span>
+                        <span class="lang-en">About EVENTECKS sarl</span>
                     </h2>
                     
                     <div class="space-y-6">
@@ -1127,7 +1137,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Company Info -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">EVENTECKS SARL</h3>
+                    <h3 class="text-xl font-semibold mb-4">EVENTECKS sarl</h3>
                     <p class="text-gray-400 mb-4">
                         <span class="lang-fr">Un monde nouveau des solutions nouvelles. Votre partenaire de confiance pour l'innovation et l'excellence.</span>
                         <span class="lang-en">A new world of new solutions. Your trusted partner for innovation and excellence.</span>
@@ -1171,29 +1181,49 @@
                     </ul>
                 </div>
 
-                <!-- Services -->
+                <!-- Services - Liste complète -->
                 <div>
                     <h3 class="text-xl font-semibold mb-4">
                         <span class="lang-fr">Nos Services</span>
                         <span class="lang-en">Our Services</span>
                     </h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <span class="lang-fr">Sécurité Informatique</span>
-                            <span class="lang-en">IT Security</span>
-                        </a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <span class="lang-fr">Événementiel</span>
-                            <span class="lang-en">Events</span>
-                        </a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <span class="lang-fr">Services Financiers</span>
-                            <span class="lang-en">Financial Services</span>
-                        </a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <span class="lang-fr">Produits Agricoles</span>
-                            <span class="lang-en">Agricultural Products</span>
-                        </a></li>
+                        <li>
+                            <span class="footer-service-link text-gray-400 hover:text-white transition duration-300" onclick="openServiceModal('it')">
+                                <span class="lang-fr">Ingénierie & Sécurité IT</span>
+                                <span class="lang-en">IT Engineering & Security</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-service-link text-gray-400 hover:text-white transition duration-300" onclick="openServiceModal('event')">
+                                <span class="lang-fr">Événementiel & Communication</span>
+                                <span class="lang-en">Events & Communication</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-service-link text-gray-400 hover:text-white transition duration-300" onclick="openServiceModal('finance')">
+                                <span class="lang-fr">Services Financiers & Immobiliers</span>
+                                <span class="lang-en">Financial & Real Estate Services</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-service-link text-gray-400 hover:text-white transition duration-300" onclick="openServiceModal('agriculture')">
+                                <span class="lang-fr">Produits Agricoles & Fermiers</span>
+                                <span class="lang-en">Agricultural & Farm Products</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-service-link text-gray-400 hover:text-white transition duration-300" onclick="openServiceModal('btp')">
+                                <span class="lang-fr">Bâtiment & Travaux Publics</span>
+                                <span class="lang-en">Building & Public Works</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="footer-service-link text-gray-400 hover:text-white transition duration-300" onclick="openServiceModal('import')">
+                                <span class="lang-fr">Import-Export & Commerce Général</span>
+                                <span class="lang-en">Import-Export & General Trade</span>
+                            </span>
+                        </li>
                     </ul>
                 </div>
 
@@ -1219,12 +1249,136 @@
 
             <div class="border-t border-gray-800 mt-12 pt-8 text-center">
                 <p class="text-gray-400">
-                    <span class="lang-fr">&copy; 2025 EVENTECKS SARL. Tous droits réservés. | Capital social: 1.000.000 FCFA</span>
-                    <span class="lang-en">&copy; 2025 EVENTECKS SARL. All rights reserved. | Share capital: 1,000,000 FCFA</span>
+                    <span class="lang-fr">&copy; 2025 EVENTECKS sarl. Tous droits réservés. | Capital social: 1.000.000 FCFA</span>
+                    <span class="lang-en">&copy; 2025 EVENTECKS sarl. All rights reserved. | Share capital: 1,000,000 FCFA</span>
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Quote Modal -->
+    <div id="modal-quote" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal-quote')">&times;</span>
+            <div class="modal-header">
+                <h2 class="text-3xl font-bold">
+                    <span class="lang-fr">Demander un devis</span>
+                    <span class="lang-en">Request a quote</span>
+                </h2>
+                <p class="text-blue-100 mt-2">
+                    <span class="lang-fr">Remplissez ce formulaire pour obtenir un devis personnalisé</span>
+                    <span class="lang-en">Fill out this form to get a personalized quote</span>
+                </p>
+            </div>
+            <div class="modal-body">
+                <form action="https://formspree.io/f/mblzdrap" method="POST" id="quoteForm" enctype="multipart/form-data">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label for="quote-name" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Nom complet *</span>
+                                <span class="lang-en">Full Name *</span>
+                            </label>
+                            <input type="text" id="quote-name" name="name" required class="form-input">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="quote-email" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Email *</span>
+                                <span class="lang-en">Email *</span>
+                            </label>
+                            <input type="email" id="quote-email" name="email" required class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="mb-4">
+                            <label for="quote-phone" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Téléphone *</span>
+                                <span class="lang-en">Phone *</span>
+                            </label>
+                            <input type="tel" id="quote-phone" name="phone" required class="form-input">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="quote-company" class="block text-sm font-medium text-gray-700 mb-1">
+                                <span class="lang-fr">Entreprise</span>
+                                <span class="lang-en">Company</span>
+                            </label>
+                            <input type="text" id="quote-company" name="company" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="quote-service" class="block text-sm font-medium text-gray-700 mb-1">
+                            <span class="lang-fr">Domaine d'activité concerné *</span>
+                            <span class="lang-en">Area of activity concerned *</span>
+                        </label>
+                        <select id="quote-service" name="service" required class="form-input">
+                            <option value="">
+                                <span class="lang-fr">Sélectionnez un domaine</span>
+                                <span class="lang-en">Select a domain</span>
+                            </option>
+                            <option value="it">
+                                <span class="lang-fr">Ingénierie & Sécurité IT</span>
+                                <span class="lang-en">IT Engineering & Security</span>
+                            </option>
+                            <option value="event">
+                                <span class="lang-fr">Événementiel & Communication</span>
+                                <span class="lang-en">Events & Communication</span>
+                            </option>
+                            <option value="finance">
+                                <span class="lang-fr">Services Financiers</span>
+                                <span class="lang-en">Financial Services</span>
+                            </option>
+                            <option value="agriculture">
+                                <span class="lang-fr">Produits Agricoles</span>
+                                <span class="lang-en">Agricultural Products</span>
+                            </option>
+                            <option value="btp">
+                                <span class="lang-fr">Bâtiment & TP</span>
+                                <span class="lang-en">Building & Construction</span>
+                            </option>
+                            <option value="import">
+                                <span class="lang-fr">Import-Export</span>
+                                <span class="lang-en">Import-Export</span>
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="quote-description" class="block text-sm font-medium text-gray-700 mb-1">
+                            <span class="lang-fr">Description du besoin ou du projet *</span>
+                            <span class="lang-en">Description of the need or project *</span>
+                        </label>
+                        <textarea id="quote-description" name="description" rows="4" required class="form-input"></textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="quote-file" class="block text-sm font-medium text-gray-700 mb-1">
+                            <span class="lang-fr">Joindre un fichier (optionnel)</span>
+                            <span class="lang-en">Attach a file (optional)</span>
+                        </label>
+                        <input type="file" id="quote-file" name="file" class="form-input">
+                        <p class="text-sm text-gray-500 mt-1">
+                            <span class="lang-fr">Formats acceptés: PDF, JPG, PNG, DOC, DOCX (max 10MB)</span>
+                            <span class="lang-en">Accepted formats: PDF, JPG, PNG, DOC, DOCX (max 10MB)</span>
+                        </p>
+                    </div>
+
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-semibold transition duration-300">
+                        <span class="lang-fr">Demander un devis</span>
+                        <span class="lang-en">Request a quote</span>
+                    </button>
+                </form>
+                
+                <!-- Message de confirmation -->
+                <div id="quoteSuccessMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                    <span class="lang-fr">✅ Votre demande de devis a été envoyée avec succès ! Nous vous répondrons dans les plus brefs délais.</span>
+                    <span class="lang-en">✅ Your quote request has been sent successfully! We will respond to you as soon as possible.</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Service Detail Modals -->
     <!-- Modal for IT Services -->
@@ -1334,10 +1488,10 @@
                         <span class="lang-fr">Service précédent</span>
                         <span class="lang-en">Previous service</span>
                     </button>
-                    <button class="quote-btn" onclick="requestQuote('it')">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="lang-fr">Demander un devis</span>
-                        <span class="lang-en">Request a quote</span>
+                    <button class="quote-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-envelope"></i>
+                        <span class="lang-fr">Nous contacter</span>
+                        <span class="lang-en">Contact us</span>
                     </button>
                     <button class="nav-btn" onclick="openServiceModal('event')">
                         <span class="lang-fr">Service suivant</span>
@@ -1456,10 +1610,10 @@
                         <span class="lang-fr">Service précédent</span>
                         <span class="lang-en">Previous service</span>
                     </button>
-                    <button class="quote-btn" onclick="requestQuote('event')">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="lang-fr">Demander un devis</span>
-                        <span class="lang-en">Request a quote</span>
+                    <button class="quote-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-envelope"></i>
+                        <span class="lang-fr">Nous contacter</span>
+                        <span class="lang-en">Contact us</span>
                     </button>
                     <button class="nav-btn" onclick="openServiceModal('finance')">
                         <span class="lang-fr">Service suivant</span>
@@ -1578,10 +1732,10 @@
                         <span class="lang-fr">Service précédent</span>
                         <span class="lang-en">Previous service</span>
                     </button>
-                    <button class="quote-btn" onclick="requestQuote('finance')">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="lang-fr">Demander un devis</span>
-                        <span class="lang-en">Request a quote</span>
+                    <button class="quote-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-envelope"></i>
+                        <span class="lang-fr">Nous contacter</span>
+                        <span class="lang-en">Contact us</span>
                     </button>
                     <button class="nav-btn" onclick="openServiceModal('agriculture')">
                         <span class="lang-fr">Service suivant</span>
@@ -1700,10 +1854,10 @@
                         <span class="lang-fr">Service précédent</span>
                         <span class="lang-en">Previous service</span>
                     </button>
-                    <button class="quote-btn" onclick="requestQuote('agriculture')">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="lang-fr">Demander un devis</span>
-                        <span class="lang-en">Request a quote</span>
+                    <button class="quote-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-envelope"></i>
+                        <span class="lang-fr">Nous contacter</span>
+                        <span class="lang-en">Contact us</span>
                     </button>
                     <button class="nav-btn" onclick="openServiceModal('btp')">
                         <span class="lang-fr">Service suivant</span>
@@ -1822,10 +1976,10 @@
                         <span class="lang-fr">Service précédent</span>
                         <span class="lang-en">Previous service</span>
                     </button>
-                    <button class="quote-btn" onclick="requestQuote('btp')">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="lang-fr">Demander un devis</span>
-                        <span class="lang-en">Request a quote</span>
+                    <button class="quote-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-envelope"></i>
+                        <span class="lang-fr">Nous contacter</span>
+                        <span class="lang-en">Contact us</span>
                     </button>
                     <button class="nav-btn" onclick="openServiceModal('import')">
                         <span class="lang-fr">Service suivant</span>
@@ -1944,10 +2098,10 @@
                         <span class="lang-fr">Service précédent</span>
                         <span class="lang-en">Previous service</span>
                     </button>
-                    <button class="quote-btn" onclick="requestQuote('import')">
-                        <i class="fas fa-file-alt"></i>
-                        <span class="lang-fr">Demander un devis</span>
-                        <span class="lang-en">Request a quote</span>
+                    <button class="quote-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-envelope"></i>
+                        <span class="lang-fr">Nous contacter</span>
+                        <span class="lang-en">Contact us</span>
                     </button>
                     <button class="nav-btn" onclick="openServiceModal('it')">
                         <span class="lang-fr">Service suivant</span>
@@ -2050,6 +2204,51 @@
             }
         });
 
+        // Gestion du formulaire de devis
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            // Afficher le loading
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>' + 
+                (document.body.classList.contains('english') ? 'Sending...' : 'Envoi en cours...');
+            submitButton.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Succès
+                    document.getElementById('quoteSuccessMessage').classList.remove('hidden');
+                    form.reset();
+                    
+                    // Cacher le message après 5 secondes
+                    setTimeout(() => {
+                        document.getElementById('quoteSuccessMessage').classList.add('hidden');
+                    }, 5000);
+                } else {
+                    throw new Error('Erreur lors de l\'envoi');
+                }
+            } catch (error) {
+                alert(document.body.classList.contains('english') 
+                    ? 'Error sending quote request. Please contact us directly by phone at +225 0505038403.'
+                    : 'Erreur lors de l\'envoi de la demande de devis. Veuillez nous contacter directement par téléphone au +225 0505038403.');
+            } finally {
+                // Réinitialiser le bouton
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
@@ -2067,14 +2266,14 @@
             
             // Mettre à jour le titre de la page
             document.title = isEnglish 
-                ? 'EVENTECKS SARL - A new world of new solutions' 
-                : 'EVENTECKS SARL - Un monde nouveau des solutions nouvelles';
+                ? 'EVENTECKS sarl - A new world of new solutions' 
+                : 'EVENTECKS sarl - Un monde nouveau des solutions nouvelles';
             
             // Mettre à jour la meta description
             const metaDescription = document.querySelector('meta[name="description"]');
             metaDescription.content = isEnglish
-                ? 'EVENTECKS SARL - Your multisectoral partner in Côte d\'Ivoire. IT Engineering, Events, Financial Services, Agricultural Products, Construction, Import-Export.'
-                : 'EVENTECKS SARL - Votre partenaire multisectoriel en Côte d\'Ivoire. Ingénierie IT, Événementiel, Services Financiers, Produits Agricoles, BTP, Import-Export.';
+                ? 'EVENTECKS sarl - Your multisectoral partner in Côte d\'Ivoire. IT Engineering, Events, Financial Services, Agricultural Products, Construction, Import-Export.'
+                : 'EVENTECKS sarl - Votre partenaire multisectoriel en Côte d\'Ivoire. Ingénierie IT, Événementiel, Services Financiers, Produits Agricoles, BTP, Import-Export.';
             
             // Synchroniser les interrupteurs de langue
             document.getElementById('languageToggle').checked = isEnglish;
@@ -2091,10 +2290,10 @@
             document.documentElement.lang = 'en';
             document.getElementById('languageToggle').checked = true;
             document.getElementById('mobileLanguageToggle').checked = true;
-            document.title = 'EVENTECKS SARL - A new world of new solutions';
+            document.title = 'EVENTECKS sarl - A new world of new solutions';
             
             const metaDescription = document.querySelector('meta[name="description"]');
-            metaDescription.content = 'EVENTECKS SARL - Your multisectoral partner in Côte d\'Ivoire. IT Engineering, Events, Financial Services, Agricultural Products, Construction, Import-Export.';
+            metaDescription.content = 'EVENTECKS sarl - Your multisectoral partner in Côte d\'Ivoire. IT Engineering, Events, Financial Services, Agricultural Products, Construction, Import-Export.';
         }
 
         // Écouteurs d'événements pour les interrupteurs de langue
@@ -2107,39 +2306,14 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function openQuoteModal() {
+            document.getElementById('modal-quote').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-
-        function requestQuote(serviceId) {
-            closeModal(`modal-${serviceId}`);
-            scrollToSection('contact');
-            
-            // Préremplir le formulaire avec le service sélectionné
-            setTimeout(() => {
-                const serviceSelect = document.getElementById('service');
-                serviceSelect.value = serviceId;
-                
-                // Ajouter un message contextuel
-                const messageTextarea = document.getElementById('message');
-                const isEnglish = document.body.classList.contains('english');
-                
-                const serviceTitles = {
-                    'it': { fr: 'Ingénierie & Sécurité IT', en: 'IT Engineering & Security' },
-                    'event': { fr: 'Événementiel & Communication', en: 'Events & Communication' },
-                    'finance': { fr: 'Services Financiers', en: 'Financial Services' },
-                    'agriculture': { fr: 'Produits Agricoles', en: 'Agricultural Products' },
-                    'btp': { fr: 'Bâtiment & TP', en: 'Building & Construction' },
-                    'import': { fr: 'Import-Export', en: 'Import-Export' }
-                };
-                
-                let prefix = isEnglish 
-                    ? `I'm interested in ${serviceTitles[serviceId].en}. Please provide me with a quote.\n\n`
-                    : `Je suis intéressé par ${serviceTitles[serviceId].fr}. Veuillez me fournir un devis.\n\n`;
-                
-                messageTextarea.value = prefix + messageTextarea.value;
-            }, 500);
         }
 
         // Close modal when clicking outside
