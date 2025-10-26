@@ -25,6 +25,23 @@
         
         body {
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/v4fvdhPk/logo-eventecks3.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 300px;
+            opacity: 0.03;
+            z-index: -1;
+            pointer-events: none;
         }
         
         .hero-gradient {
@@ -333,9 +350,12 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h2 class="text-2xl font-bold text-blue-600">EVENTECKS sarl</h2>
-                        <p class="text-xs text-gray-500">Event-Technologies-Services</p>
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="https://i.ibb.co/v4fvdhPk/logo-eventecks3.jpg" alt="EVENTECKS sarl" class="h-12 mr-3">
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-600">EVENTECKS sarl</h2>
+                            <p class="text-xs text-gray-500">Event-Technologies-Services</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1137,6 +1157,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <!-- Company Info -->
                 <div>
+                    <img src="https://i.ibb.co/v4fvdhPk/logo-eventecks3.jpg" alt="EVENTECKS sarl" class="h-16 mb-4">
                     <h3 class="text-xl font-semibold mb-4">EVENTECKS sarl</h3>
                     <p class="text-gray-400 mb-4">
                         <span class="lang-fr">Un monde nouveau des solutions nouvelles. Votre partenaire de confiance pour l'innovation et l'excellence.</span>
@@ -1503,6 +1524,7 @@
         </div>
     </div>
 
+    <!-- Les autres modals (event, finance, agriculture, btp, import) restent identiques à votre fichier original -->
     <!-- Modal for Event Services -->
     <div id="modal-event" class="modal">
         <div class="modal-content">
